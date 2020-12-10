@@ -75,8 +75,9 @@ $(document).ready(function(){
           timeScore: 0.0,
           moveScore: 0
         }
-        let newRef = gameRef.push(newUser)
-        myId = newRef.name();
+        gameRef.push(newUser).then((snap) => {
+            myId = snap.key 
+        })
     }
 
     async function main() {
