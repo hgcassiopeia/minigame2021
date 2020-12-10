@@ -8,7 +8,7 @@ body{
   margin: 0;
 }
 
-button {
+button#btnMsg, button#btnClose{
   width: 200px;
   height: 60px;
   background-color:white;
