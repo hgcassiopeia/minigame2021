@@ -11,10 +11,8 @@
   <h1>Hello World!</h1>
   <p id="param"><b>Query Param: </b></p>
   <img id="pictureUrl">
-  <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
-  <p id="decodedIDToken"><b>email:</b> </p>
   
   <script>
     // Query Params
@@ -24,24 +22,39 @@
   </script>
 
   <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/alexgibson/shake.js/master/shake.js"></script>
   <script>
     async function getUserProfile() {
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
-      document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+    }
+    function shake(){
+      //listen to shake event
+      var shakeEvent = new Shake({threshold: 15});
+      shakeEvent.start();
+      window.addEventListener('shake', function(){
+          alert("Shaked");
+      }, false);
+      //stop listening
+      function stopShake(){
+          shakeEvent.stop();
+      }
+      //check if shake is supported or not.
+      if(!("ondevicemotion" in window)){alert("Not Supported");}
     }
     async function main() {
       await liff.init({ liffId: "1655315308-k2ZaAZZm" })
       if (liff.isLoggedIn()) {
         getUserProfile()
+        shake()
       } else {
         liff.login({ redirectUri: "https://hgcassiopeia.github.io/minigame2021/path/" })
       }
     }
     main()
+
   </script>
 </body>
 
