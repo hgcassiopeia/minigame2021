@@ -7,39 +7,19 @@
 </head>
 <body>
   <div class="align-center">
+    <h1>Puzzle Game</h1>
+    <h5>A-HOST New Year Party 2021</h5>
+
     <img id="pictureUrl">
-    <p id="displayName"> </p>
-    <p id="statusMessage"> </p>
+    <p id="displayName"></p>
+    <p id="statusMessage"></p>
     
-    <button id="btnMsg" onclick="sendMsg()"><h2>START</h2></button>
+    <button id="btnMsg" onclick="goToStart()"><h2>START</h2></button>
     <button id="btnClose" onclick="closed()"><h2>CLOSE</h2></button>
   </div>
 
   <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
   <script>
-    function createUniversalLink() {
-      const link1 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink1").append(link1)
-
-      liff.permanentLink.setExtraQueryParam('param=9')
-      const link2 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink2").append(link2)
-    }
-
-    async function shareMsg() {
-      await liff.shareTargetPicker([
-        {
-          type: "text",
-          text: "This message was sent by ShareTargetPicker"
-        }
-      ])
-    }
-
-    function logOut() {
-      liff.logout()
-      window.location.reload()
-    }
-
     function closed() {
       liff.closeWindow()
     }
@@ -48,67 +28,22 @@
       const result = await liff.scanCode()
       document.getElementById("scanCode").append(result.value)
     }
-    
-    function openWindow() {
-      liff.openWindow({
-        url: "https://line.me",
-        external: true
-      })
-    }
 
-    async function getFriendship() {
-      const friend = await liff.getFriendship()
-      document.getElementById("friendship").append(friend.friendFlag)
-      if (!friend.friendFlag) {
-        if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-          window.location = "https://line.me/R/ti/p/@178yfyoa"
-        }
-      }
-    }
-
-    async function sendMsg() {
-      window.location.href="/path/?param=1"; 
-    }
-
-    function getContext() {
-      document.getElementById("type").append(liff.getContext().type)
-      document.getElementById("viewType").append(liff.getContext().viewType)
-      document.getElementById("utouId").append(liff.getContext().utouId)
-      document.getElementById("roomId").append(liff.getContext().roomId)
-      document.getElementById("groupId").append(liff.getContext().groupId)
-      
+    async function goToStart() {
+      window.location.href="/minigame2021/path/?param=1"; 
     }
 
     async function getUserProfile() {
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
-      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("statusMessage").append('Happy New Year ʕ •ᴥ• ʔ')
       document.getElementById("displayName").append(profile.displayName)
-    }
-    
-    function getEnvironment() {
-      document.getElementById("os").append(liff.getOS())
-      document.getElementById("language").append(liff.getLanguage())
-      document.getElementById("version").append(liff.getVersion())
-      document.getElementById("accessToken").append(liff.getAccessToken())
-      document.getElementById("isInClient").append(liff.isInClient())
-      if (liff.isInClient()) {
-        document.getElementById("btnLogOut").style.display = "none"
-      } else {
-        document.getElementById("btnMsg").style.display = "none"
-        document.getElementById("btnClose").style.display = "none"
-      }
     }
 
     async function main() {
       liff.ready.then(() => {
-        // document.getElementById("isLoggedIn").append(liff.isLoggedIn())
         if (liff.isLoggedIn()) {
-          // getEnvironment()
           getUserProfile()
-          // getContext()
-          // getFriendship()
-          // createUniversalLink()
         } else {
           liff.login()
         }

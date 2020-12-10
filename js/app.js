@@ -65,10 +65,9 @@ $(document).ready(function(){
 
     async function getUserProfile() {
         profile = await liff.getProfile()
-        statusMessage = profile.statusMessage ? profile.statusMessage : ''
 
         document.getElementById("pictureUrl").src = profile.pictureUrl
-        document.getElementById("statusMessage").append(statusMessage)
+        document.getElementById("statusMessage").append("Happy New Year ʕ •ᴥ• ʔ")
         document.getElementById("displayName").append(profile.displayName)
 
         const gameRef = dbRef.child('games');
@@ -89,7 +88,7 @@ $(document).ready(function(){
         if (liff.isLoggedIn()) {
             getUserProfile()
         } else {
-            liff.login({ redirectUri: "/path" })
+            liff.login({ redirectUri: "/minigame2021/path" })
         }
     }
 
@@ -103,11 +102,9 @@ $(document).ready(function(){
     });
 
     //  play the game
-
     $('.pieces').click(function(){
 
         if(tileClicked == false){  //  if no tile is clicked
-
           //  set variables
           firstTileClicked = $(this).attr('id');
           topPosFir = parseInt($(this).css('top')); 
@@ -118,7 +115,6 @@ $(document).ready(function(){
           tileClicked = true;
 
         } else{  //  if you've clicked a tile
-
           //  set variables
           secondTileClicked = $(this).attr('id');
           topPosSec = parseInt($(this).css('top')); 
@@ -133,7 +129,6 @@ $(document).ready(function(){
           tileClicked = false;
 
           //  test for the win
-
           setTimeout(function(){
             if(
               $('#piece-1').css('left') == '0px' && $('#piece-1').css('top') == '0px' && 

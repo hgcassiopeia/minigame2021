@@ -8,27 +8,40 @@ body{
   margin: 0;
 }
 
-button#btnMsg, button#btnClose{
+button {
   width: 200px;
   height: 60px;
   background-color:white;
-  border: 3px solid skyblue;
   border-radius: 10px;
-  color: skyblue;
   margin: 10px auto;
+}
+
+button#btnMsg{
+  border: 3px solid skyblue;
+  color: skyblue;
+}
+
+button#btnClose{
+  border: 3px solid red;
+  color: red;
 }
 
 p {
   text-align: center;
-  border-bottom: 1px dashed #ddd;
-  margin: 20px auto;
-  text-align: center;
+}
+
+#displayName {
+  margin: 20px auto 5px auto;
+}
+
+#statusMessage {
+  margin: 0 auto 10px 0;
 }
 
 #pictureUrl {
   display: block;
   margin: 0 auto;
-  width: 12%;
+  width: 40%;
   display: -moz-box;
   display: -webkit-box;
   display: box;
