@@ -23,10 +23,10 @@
     }
 
   article{
-    width: 1020px;
-    height: 680px;
+    width: 320px;
+    height: 200px;
     background: #f2f2f2;
-    margin: 40px auto 20px auto;
+    margin: 20px auto;
     position: relative;
     -webkit-transition: all 0.8s cubic-bezier(0.58, -0.55, 0.265, 1.45);
     -ms-transition: all 0.8s cubic-bezier(0.58, -0.55, 0.265, 1.45);
@@ -35,8 +35,8 @@
     }
 
   .pieces{
-    width: 340px;
-    height: 340px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     z-index: 100;
     -webkit-transition: all 0.6s cubic-bezier(0.58, -0.55, 0.265, 1.45);
@@ -50,43 +50,48 @@
     top: 0;
     left: 0;
     background: url(http://piersrueb.com/puzzle/img/puzzle-1.jpg);
+    background-size: cover;
     }
 
   #piece-2{
     top: 0;
-    left: 340px;
+    left: 100px;
     background: url(http://piersrueb.com/puzzle/img/puzzle-2.jpg);
+    background-size: cover;
     }
 
   #piece-3{
     top: 0;
-    left: 680px;
+    left: 200px;
     background: url(http://piersrueb.com/puzzle/img/puzzle-3.jpg);
+    background-size: cover;
     }
 
   #piece-4{
-    top: 340px;
+    top: 100px;
     left: 0;
     background: url(http://piersrueb.com/puzzle/img/puzzle-4.jpg);
+    background-size: cover;
     }
 
   #piece-5{
-    top: 340px;
-    left: 340px;
+    top: 100px;
+    left: 100px;
     background: url(http://piersrueb.com/puzzle/img/puzzle-5.jpg);
+    background-size: cover;
     }
 
   #piece-6{
-    top: 340px;
-    left: 680px;
+    top: 100px;
+    left: 200px;
     background: url(http://piersrueb.com/puzzle/img/puzzle-6.jpg);
+    background-size: cover;
     }
 
   p{
     margin: 20px auto;
-    width: 1020px;
     text-align: center;
-    }
+  }
 
   .glow{
     z-index: 101;
@@ -108,25 +113,32 @@
     50%   { transform: scale(1.02); }
     100%  { transform: scale(1); }
     }
+  .align-center{
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+  }
 
 </style>
 <body>
-  <h1>Hello World!</h1>
-  <h3 id="param"><b>Query Param: </b></h3>
-  <img id="pictureUrl">
-  <h3 id="displayName"></h3>
-  <h3 id="statusMessage"></h3>
+  <div class="align-center">
+    <h1>Hello World!</h1>
+    <h3 id="param"><b>Query Param: </b></h3>
+    <img id="pictureUrl">
+    <h3 id="displayName"></h3>
+    <h3 id="statusMessage"></h3>
 
-  <article>
-    <div class="pieces" id="piece-1"></div>
-    <div class="pieces" id="piece-2"></div>
-    <div class="pieces" id="piece-3"></div>
-    <div class="pieces" id="piece-4"></div>
-    <div class="pieces" id="piece-5"></div>
-    <div class="pieces" id="piece-6"></div>
-  </article>
-  
-  <p></p>
+    <article>
+      <div class="pieces" id="piece-1"></div>
+      <div class="pieces" id="piece-2"></div>
+      <div class="pieces" id="piece-3"></div>
+      <div class="pieces" id="piece-4"></div>
+      <div class="pieces" id="piece-5"></div>
+      <div class="pieces" id="piece-6"></div>
+    </article>
+    
+    <p></p>
+  </div>
   
   <script>
     // Query Params
@@ -158,33 +170,33 @@
 
       function shuffleTiles(){
         if(shuffle == 1){
-          $('#piece-1').css({top: 340, left: 680});
-          $('#piece-2').css({top: 0, left: 680});
-          $('#piece-3').css({top: 340, left: 340});
-          $('#piece-4').css({top: 0, left: 340});
-          $('#piece-5').css({top: 340, left: 0});
+          $('#piece-1').css({top: 100, left: 200});
+          $('#piece-2').css({top: 0, left: 200});
+          $('#piece-3').css({top: 100, left: 100});
+          $('#piece-4').css({top: 0, left: 100});
+          $('#piece-5').css({top: 100, left: 0});
           $('#piece-6').css({top: 0, left: 0});
         } else if(shuffle == 2){
-          $('#piece-1').css({top: 340, left: 0});
+          $('#piece-1').css({top: 100, left: 0});
           $('#piece-2').css({top: 0, left: 0});
-          $('#piece-3').css({top: 340, left: 340});
-          $('#piece-4').css({top: 0, left: 340});
-          $('#piece-5').css({top: 340, left: 680});
-          $('#piece-6').css({top: 0, left: 680});
+          $('#piece-3').css({top: 100, left: 100});
+          $('#piece-4').css({top: 0, left: 100});
+          $('#piece-5').css({top: 100, left: 200});
+          $('#piece-6').css({top: 0, left: 200});
         } else if(shuffle == 3){
-          $('#piece-1').css({top: 0, left: 680});
+          $('#piece-1').css({top: 0, left: 200});
           $('#piece-2').css({top: 0, left: 0});
-          $('#piece-3').css({top: 340, left: 340});
-          $('#piece-4').css({top: 340, left: 680});
-          $('#piece-5').css({top: 0, left: 340});
-          $('#piece-6').css({top: 340, left: 0});
+          $('#piece-3').css({top: 100, left: 100});
+          $('#piece-4').css({top: 100, left: 200});
+          $('#piece-5').css({top: 0, left: 100});
+          $('#piece-6').css({top: 100, left: 0});
         } else if(shuffle == 4){
-          $('#piece-1').css({top: 0, left: 680});
-          $('#piece-2').css({top: 340, left: 680});
-          $('#piece-3').css({top: 0, left: 340});
-          $('#piece-4').css({top: 340, left: 340});
+          $('#piece-1').css({top: 0, left: 200});
+          $('#piece-2').css({top: 100, left: 200});
+          $('#piece-3').css({top: 0, left: 100});
+          $('#piece-4').css({top: 100, left: 100});
           $('#piece-5').css({top: 0, left: 0});
-          $('#piece-6').css({top: 340, left: 0});
+          $('#piece-6').css({top: 100, left: 0});
         }
       }
 
@@ -232,11 +244,11 @@
           setTimeout(function(){
             if(
               $('#piece-1').css('left') == '0px' && $('#piece-1').css('top') == '0px' && 
-              $('#piece-2').css('left') == '340px' && $('#piece-2').css('top') == '0px' &&
-              $('#piece-3').css('left') == '680px' && $('#piece-3').css('top') == '0px' &&
-              $('#piece-4').css('left') == '0px' && $('#piece-4').css('top') == '340px' &&
-              $('#piece-5').css('left') == '340px' && $('#piece-5').css('top') == '340px' &&
-              $('#piece-6').css('left') == '680px' && $('#piece-6').css('top') == '340px' 
+              $('#piece-2').css('left') == '100px' && $('#piece-2').css('top') == '0px' &&
+              $('#piece-3').css('left') == '200px' && $('#piece-3').css('top') == '0px' &&
+              $('#piece-4').css('left') == '0px' && $('#piece-4').css('top') == '100px' &&
+              $('#piece-5').css('left') == '100px' && $('#piece-5').css('top') == '100px' &&
+              $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' 
             ){
               $('p').text('You have solved the puzzle in ' + secs + ' seconds using ' + moves + ' moves!!');
               $('article').addClass('glow-2');
