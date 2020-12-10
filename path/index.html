@@ -8,8 +8,8 @@
 </head>
 <body>
   <div class="align-center">
-    <h1>Hello World!</h1>
-    <h3 id="param"><b>Query Param: </b></h3>
+    <!-- <h1>Hello World!</h1>
+    <h3 id="param"><b>Query Param: </b></h3> -->
     <img id="pictureUrl">
     <h3 id="displayName"></h3>
     <h3 id="statusMessage"></h3>
@@ -24,24 +24,20 @@
     </article>
     
     <p></p>
-
-    <script>
-      // Query Params
-      const queryString = decodeURIComponent(window.location.search);
-      const params = new URLSearchParams(queryString);
-      document.getElementById("param").append(params.get("param"));
-    </script>
-  
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script> -->
-    <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
-
-    <script src="../js/app.js"></script>
   </div>
+  <!-- <script>
+    // Query Params
+    const queryString = decodeURIComponent(window.location.search);
+    const params = new URLSearchParams(queryString);
+    document.getElementById("param").append(params.get("param"));
+  </script> -->
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+
+  <script src="../js/app.js"></script>
 </body>
 
 </html>

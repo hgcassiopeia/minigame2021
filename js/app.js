@@ -65,9 +65,12 @@ $(document).ready(function(){
 
     async function getUserProfile() {
         profile = await liff.getProfile()
+        statusMessage = profile.statusMessage ? profile.statusMessage : ''
+
         document.getElementById("pictureUrl").src = profile.pictureUrl
-        document.getElementById("statusMessage").append(profile.statusMessage)
+        document.getElementById("statusMessage").append(statusMessage)
         document.getElementById("displayName").append(profile.displayName)
+
         const gameRef = dbRef.child('games');
         let newUser = {
           userId: profile.userId,
@@ -86,7 +89,7 @@ $(document).ready(function(){
         if (liff.isLoggedIn()) {
             getUserProfile()
         } else {
-            liff.login({ redirectUri: "https://hgcassiopeia.github.io/minigame2021/path/" })
+            liff.login({ redirectUri: "/path" })
         }
     }
 
