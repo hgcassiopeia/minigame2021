@@ -27,6 +27,7 @@ $(document).ready(function(){
     var shuffle = Math.floor((Math.random() * 4) + 1);
     var moves = 0;
     var secs = 0;
+    var myId = 0;
 
     //  shuffle the tiles
     function shuffleTiles(){
@@ -66,7 +67,7 @@ $(document).ready(function(){
         document.getElementById("pictureUrl").src = profile.pictureUrl
         document.getElementById("statusMessage").append(profile.statusMessage)
         document.getElementById("displayName").append(profile.displayName)
-        const usersRef = dbRef.child('games');
+        const gameRef = dbRef.child('games');
         let newUser = {
           userId: profile.userId,
           displayName: profile.displayName,
@@ -74,7 +75,8 @@ $(document).ready(function(){
           timeScore: 0.0,
           moveScore: 0
         }
-        usersRef.push(newUser)
+        let newRef = gameRef.push(newUser)
+        myId = newRef.name();
     }
 
     async function main() {
@@ -136,9 +138,19 @@ $(document).ready(function(){
               $('#piece-5').css('left') == '100px' && $('#piece-5').css('top') == '100px' &&
               $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' 
             ){
-              $('p').text('You have solved the puzzle in ' + secs + ' seconds using ' + moves + ' moves!!');
-              $('article').addClass('glow-2');
-              moves = 0;
+                const gameRef = dbRef.child('games/' + myId);
+                let updateScore = {
+                    userId: profile.userId,
+                    displayName: profile.displayName,
+                    pictureUrl: profile.pictureUrl,
+                    timeScore: secs,
+                    moveScore: moves
+                }
+                gameRef.update(updateScore)
+
+                $('p').text('You have solved the puzzle in ' + secs + ' seconds using ' + moves + ' moves!!');
+                $('article').addClass('glow-2');
+                moves = 0;
             }
           }, 1000);
 
