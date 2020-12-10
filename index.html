@@ -6,18 +6,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <p id="os"><b>OS:</b> </p>
-  <p id="language"><b>Language:</b> </p>
-  <p id="version"><b>Version:</b> </p>
-  <p id="isInClient"><b>isInClient:</b> </p>
-  <p id="accessToken"><b>AccessToken:</b> </p>
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
-  <p><a href="https://hgcassiopeia.github.io/minigame2021/path/?param=1">Link to Path</a></p>
-
-  <button id="btnMsg" onclick="sendMsg()">Send Message</button>
+  
+  <button id="btnMsg" onclick="sendMsg()">start</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
@@ -120,7 +114,7 @@
       liff.ready.then(() => {
         // document.getElementById("isLoggedIn").append(liff.isLoggedIn())
         if (liff.isLoggedIn()) {
-          getEnvironment()
+          // getEnvironment()
           getUserProfile()
           // getContext()
           // getFriendship()
