@@ -6,6 +6,7 @@ button {
 }
 
 p {
+  text-align: center;
   border-bottom: 1px dashed #ddd
 }
 

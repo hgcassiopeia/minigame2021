@@ -7,11 +7,10 @@
 </head>
 <body>
   <img id="pictureUrl">
-  <p id="displayName"><b>displayName:</b> </p>
-  <p id="statusMessage"><b>statusMessage:</b> </p>
+  <p id="displayName"> </p>
+  <p id="statusMessage"> </p>
   
-  <button id="btnMsg" onclick="sendMsg()">start</button>
-  <button id="btnLogOut" onclick="logOut()">Log Out</button>
+  <button id="btnMsg" onclick="sendMsg()">Start</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
   <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
@@ -66,16 +65,17 @@
     }
 
     async function sendMsg() {
-      if (liff.getContext().type !== "none") {
-        await liff.sendMessages([
-          {
-            "type": "sticker",
-            "stickerId": 1,
-            "packageId": 1
-          }
-        ])
-        alert("Message sent")
-      }
+      window.location.href="https://hgcassiopeia.github.io/minigame2021/path/?param=1";
+      // if (liff.getContext().type !== "none") {
+      //   await liff.sendMessages([
+      //     {
+      //       "type": "sticker",
+      //       "stickerId": 1,
+      //       "packageId": 1
+      //     }
+      //   ])
+      //   alert("Message sent")
+      // }
     }
 
     function getContext() {
