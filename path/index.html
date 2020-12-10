@@ -24,7 +24,7 @@
 
   article{
     width: 1020px;
-    height: 480px;
+    height: 680px;
     background: #f2f2f2;
     margin: 40px auto 20px auto;
     position: relative;
@@ -35,8 +35,8 @@
     }
 
   .pieces{
-    width: 240px;
-    height: 240px;
+    width: 340px;
+    height: 340px;
     position: absolute;
     z-index: 100;
     -webkit-transition: all 0.6s cubic-bezier(0.58, -0.55, 0.265, 1.45);
@@ -54,31 +54,31 @@
 
   #piece-2{
     top: 0;
-    left: 240px;
+    left: 340px;
     background: url(http://piersrueb.com/puzzle/img/puzzle-2.jpg);
     }
 
   #piece-3{
     top: 0;
-    left: 480px;
+    left: 680px;
     background: url(http://piersrueb.com/puzzle/img/puzzle-3.jpg);
     }
 
   #piece-4{
-    top: 240px;
+    top: 340px;
     left: 0;
     background: url(http://piersrueb.com/puzzle/img/puzzle-4.jpg);
     }
 
   #piece-5{
-    top: 240px;
-    left: 240px;
+    top: 340px;
+    left: 340px;
     background: url(http://piersrueb.com/puzzle/img/puzzle-5.jpg);
     }
 
   #piece-6{
-    top: 240px;
-    left: 480px;
+    top: 340px;
+    left: 680px;
     background: url(http://piersrueb.com/puzzle/img/puzzle-6.jpg);
     }
 
@@ -158,33 +158,33 @@
 
       function shuffleTiles(){
         if(shuffle == 1){
-          $('#piece-1').css({top: 240, left: 480});
-          $('#piece-2').css({top: 0, left: 480});
-          $('#piece-3').css({top: 240, left: 240});
-          $('#piece-4').css({top: 0, left: 240});
-          $('#piece-5').css({top: 240, left: 0});
+          $('#piece-1').css({top: 340, left: 680});
+          $('#piece-2').css({top: 0, left: 680});
+          $('#piece-3').css({top: 340, left: 340});
+          $('#piece-4').css({top: 0, left: 340});
+          $('#piece-5').css({top: 340, left: 0});
           $('#piece-6').css({top: 0, left: 0});
         } else if(shuffle == 2){
-          $('#piece-1').css({top: 240, left: 0});
+          $('#piece-1').css({top: 340, left: 0});
           $('#piece-2').css({top: 0, left: 0});
-          $('#piece-3').css({top: 240, left: 240});
-          $('#piece-4').css({top: 0, left: 240});
-          $('#piece-5').css({top: 240, left: 480});
-          $('#piece-6').css({top: 0, left: 480});
+          $('#piece-3').css({top: 340, left: 340});
+          $('#piece-4').css({top: 0, left: 340});
+          $('#piece-5').css({top: 340, left: 680});
+          $('#piece-6').css({top: 0, left: 680});
         } else if(shuffle == 3){
-          $('#piece-1').css({top: 0, left: 480});
+          $('#piece-1').css({top: 0, left: 680});
           $('#piece-2').css({top: 0, left: 0});
-          $('#piece-3').css({top: 240, left: 240});
-          $('#piece-4').css({top: 240, left: 480});
-          $('#piece-5').css({top: 0, left: 240});
-          $('#piece-6').css({top: 240, left: 0});
+          $('#piece-3').css({top: 340, left: 340});
+          $('#piece-4').css({top: 340, left: 680});
+          $('#piece-5').css({top: 0, left: 340});
+          $('#piece-6').css({top: 340, left: 0});
         } else if(shuffle == 4){
-          $('#piece-1').css({top: 0, left: 480});
-          $('#piece-2').css({top: 240, left: 480});
-          $('#piece-3').css({top: 0, left: 240});
-          $('#piece-4').css({top: 240, left: 240});
+          $('#piece-1').css({top: 0, left: 680});
+          $('#piece-2').css({top: 340, left: 680});
+          $('#piece-3').css({top: 0, left: 340});
+          $('#piece-4').css({top: 340, left: 340});
           $('#piece-5').css({top: 0, left: 0});
-          $('#piece-6').css({top: 240, left: 0});
+          $('#piece-6').css({top: 340, left: 0});
         }
       }
 
@@ -232,11 +232,11 @@
           setTimeout(function(){
             if(
               $('#piece-1').css('left') == '0px' && $('#piece-1').css('top') == '0px' && 
-              $('#piece-2').css('left') == '240px' && $('#piece-2').css('top') == '0px' &&
-              $('#piece-3').css('left') == '480px' && $('#piece-3').css('top') == '0px' &&
-              $('#piece-4').css('left') == '0px' && $('#piece-4').css('top') == '240px' &&
-              $('#piece-5').css('left') == '240px' && $('#piece-5').css('top') == '240px' &&
-              $('#piece-6').css('left') == '480px' && $('#piece-6').css('top') == '240px' 
+              $('#piece-2').css('left') == '340px' && $('#piece-2').css('top') == '0px' &&
+              $('#piece-3').css('left') == '680px' && $('#piece-3').css('top') == '0px' &&
+              $('#piece-4').css('left') == '0px' && $('#piece-4').css('top') == '340px' &&
+              $('#piece-5').css('left') == '340px' && $('#piece-5').css('top') == '340px' &&
+              $('#piece-6').css('left') == '680px' && $('#piece-6').css('top') == '340px' 
             ){
               $('p').text('You have solved the puzzle in ' + secs + ' seconds using ' + moves + ' moves!!');
               $('article').addClass('glow-2');
