@@ -28,6 +28,7 @@ $(document).ready(function(){
     var moves = 0;
     var secs = 0;
     var myId = 0;
+    var profile = {};
 
     //  shuffle the tiles
     function shuffleTiles(){
@@ -63,7 +64,7 @@ $(document).ready(function(){
     }
 
     async function getUserProfile() {
-        const profile = await liff.getProfile()
+        profile = await liff.getProfile()
         document.getElementById("pictureUrl").src = profile.pictureUrl
         document.getElementById("statusMessage").append(profile.statusMessage)
         document.getElementById("displayName").append(profile.displayName)
