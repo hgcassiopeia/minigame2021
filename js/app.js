@@ -14,7 +14,8 @@ $(document).ready(function(){
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-    const dbRef = firebase.database().ref(); 
+    const dbRef = firebase.database().ref();
+    
 
     //  globals
     var tileClicked = false;
