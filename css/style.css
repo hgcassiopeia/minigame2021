@@ -16,7 +16,7 @@ button {
   margin: 10px auto;
 }
 
-button#btnMsg{
+button#btnMsg {
   border: 3px solid skyblue;
   color: skyblue;
 }
@@ -30,23 +30,13 @@ p {
   text-align: center;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #1111;
+.container {
+  justify-content: flex-end;
 }
 
-li{
-  display: block;
-  text-align: center;
-  padding: 10px 5px;
-  float: left;
-  text-decoration: none;
-}
 .pic{
-  width: 40%;
+  width: 10%;
+  float: right;
 }
 
 #displayName {
