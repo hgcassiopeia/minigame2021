@@ -38,10 +38,6 @@ ul {
   background-color: #1111;
 }
 
-li {
-  float: left;
-}
-
 li{
   display: block;
   text-align: center;
@@ -49,11 +45,8 @@ li{
   float: left;
   text-decoration: none;
 }
-
-.img{
-  width: 10%;
-  height: 10%;
-  float: right;
+.pic{
+  width: 40%;
 }
 
 #displayName {
