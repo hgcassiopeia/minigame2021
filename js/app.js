@@ -153,7 +153,7 @@ $(document).ready(function(){
 
                 setTimeout(function(){
                     window.location.href="/minigame2021/"; 
-                }, 500)
+                }, 5000)
             }
           }, 1000);
 
