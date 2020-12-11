@@ -13,6 +13,7 @@
   .container {
     background-color: burlywood;
     justify-content: flex-end;
+    float: right;
   }
   .pic{
     float: right;
@@ -21,9 +22,13 @@
 <body>
   <div>
     <div class="container">
-      <h3 id="displayName"></h3>
-      <h3 id="statusMessage"></h3>
-      <img style="width: 10%; float:right" id="pictureUrl">
+      <div>
+        <h3 id="displayName"></h3>
+        <h3 id="statusMessage"></h3>
+      </div>
+      <div>
+        <img style="width: 10%; float:right" id="pictureUrl">
+      </div>
     </div>
     <div class="align-center">
       <article>
