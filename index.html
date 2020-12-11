@@ -15,7 +15,6 @@
     <p id="statusMessage"></p>
     
     <div>Please Wait ... {{ onStart }}</div>
-    <input type="checkbox" v-model="onStart">
     <!-- <button id="btnMsg" onclick="goToStart()"><h2>START</h2></button> -->
     <!-- <button id="btnClose" onclick="closed()"><h2>CLOSE</h2></button> -->
   </div>
@@ -51,7 +50,8 @@
       methods: {
         eventListenerStart() {
           stateRef.on("child_changed", snap => {
-              this.onStart = snap.val().start
+              let startEvent = snap.val()
+              this.onStart = startEvent.start
               if(this.onStart) this.goToStart()
           })
         },
