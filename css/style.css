@@ -175,6 +175,8 @@ article{
   -moz-border-radius: 100px;
   -webkit-border-radius: 100px;
   border-radius: 100px;
+  float: right;
+  
 }
 ul {
   list-style-type: none;
