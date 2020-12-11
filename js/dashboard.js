@@ -14,6 +14,7 @@ firebase.analytics();
 
 const dbRef = firebase.database().ref();
 const gamesRef = dbRef.child('games');
+const stateRef = dbRef.child('state');
 
 var app = new Vue({
     el: '#app',
@@ -48,10 +49,10 @@ var app = new Vue({
                 })
                 this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
             })
+        },
+        eventListenerStart() {
+            stateRef.update({ start: true })
         }
-    },
-    mounted() {
-        // this.onChanged()
     }
 })
 

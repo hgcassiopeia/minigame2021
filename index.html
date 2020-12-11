@@ -37,7 +37,7 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
     const dbRef = firebase.database().ref();
-    const gamesRef = dbRef.child('start');
+    const stateRef = dbRef.child('state');
 
     var app = new Vue({
       el: '#app',
@@ -49,20 +49,13 @@
       },
       methods: {
         eventListenerStart() {
-          gamesRef.on("child_changed", snap => {
+          stateRef.on("child_changed", snap => {
               this.onStart = snap.val()
-              console.log("onStart :", this.onStart)
+              if(this.onStart) this.goToStart()
           })
         },
         goToStart() {
           window.location.href="/minigame2021/path/?param=1"; 
-        }
-      },
-      watch: {
-        onStart(value) {
-          if(value) {
-            this.goToStart()
-          }
         }
       }
     })

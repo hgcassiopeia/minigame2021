@@ -13,6 +13,7 @@
     <ul v-for="game in gameList">
       <li>{{ game.displayName }} : {{game.timeScore}} : {{game.moveScore}}</li>
     </ul>
+    <button @click="eventListenerStart">START</button>
   </div>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
