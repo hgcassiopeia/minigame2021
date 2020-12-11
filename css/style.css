@@ -158,3 +158,39 @@ article{
 .align-right{
   text-align: right;
 }
+
+.pic{
+  display: block;
+  margin: 0 auto;
+  width: 10%;
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  box-pack: center;
+  box-align: center;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1111;
+}
+
+li {
+  float: left;
+}
+
+li{
+  display: block;
+  text-align: center;
+  padding: 10px 5px;
+  text-decoration: none;
+}
