@@ -11,12 +11,29 @@
     text-align: right;
   }
   .container {
-    background-color: burlywood;
+    background-color: blueviolet;
     justify-content: flex-end;
     float: right;
   }
   .pic{
     float: right;
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    box-pack: center;
+    box-align: center;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    width: 10%; 
+    float: right
   }
 </style>
 <body>
@@ -27,7 +44,7 @@
         <h3 id="statusMessage"></h3>
       </div>
       <div>
-        <img style="width: 10%; float:right" id="pictureUrl">
+        <img style="width: 10%; float:right" class="pic" id="pictureUrl">
       </div>
     </div>
     <div class="align-center">

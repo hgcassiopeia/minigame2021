@@ -39,7 +39,7 @@ p {
   margin: 0 auto 10px 0;
 }
 
-#pictureUrl {
+.pictureUrl {
   display: block;
   margin: 0 auto;
   width: 40%;
