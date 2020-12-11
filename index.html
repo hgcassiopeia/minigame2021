@@ -15,6 +15,7 @@
     <p id="statusMessage"></p>
     
     <div>Please Wait ... {{ onStart }}</div>
+    <div>NOOOOO</div>
     <!-- <button id="btnMsg" onclick="goToStart()"><h2>START</h2></button> -->
     <!-- <button id="btnClose" onclick="closed()"><h2>CLOSE</h2></button> -->
   </div>
@@ -50,8 +51,7 @@
       methods: {
         eventListenerStart() {
           stateRef.on("child_changed", snap => {
-              let startEvent = snap.val()
-              this.onStart = startEvent.start
+              this.onStart = snap.val()
               if(this.onStart) this.goToStart()
           })
         },
