@@ -30,15 +30,6 @@ p {
   text-align: center;
 }
 
-.container {
-  background-color: azure;
-  justify-content: flex-end;
-}
-
-.pic{
-  width: 10%;
-  float: right;
-}
 
 #displayName {
   margin: 20px auto 5px auto;
