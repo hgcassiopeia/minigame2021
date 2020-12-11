@@ -69,18 +69,6 @@ $(document).ready(function(){
         document.getElementById("pictureUrl").src = profile.pictureUrl
         document.getElementById("statusMessage").append("Happy New Year ʕ •ᴥ• ʔ")
         document.getElementById("displayName").append(profile.displayName)
-
-        const gameRef = dbRef.child('games');
-        let newUser = {
-          userId: profile.userId,
-          displayName: profile.displayName,
-          pictureUrl: profile.pictureUrl,
-          timeScore: 0.0,
-          moveScore: 0
-        }
-        gameRef.push(newUser).then((snap) => {
-            myId = snap.key 
-        })
     }
 
     async function main() {
@@ -138,19 +126,34 @@ $(document).ready(function(){
               $('#piece-5').css('left') == '100px' && $('#piece-5').css('top') == '100px' &&
               $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' 
             ){
-                const gameRef = dbRef.child('games/' + myId);
-                let updateScore = {
+                // const gameRef = dbRef.child('games/' + myId);
+                // let updateScore = {
+                //     userId: profile.userId,
+                //     displayName: profile.displayName,
+                //     pictureUrl: profile.pictureUrl,
+                //     timeScore: secs,
+                //     moveScore: moves
+                // }
+                // gameRef.update(updateScore)
+                const gameRef = dbRef.child('games');
+                let newUser = {
                     userId: profile.userId,
                     displayName: profile.displayName,
                     pictureUrl: profile.pictureUrl,
                     timeScore: secs,
                     moveScore: moves
                 }
-                gameRef.update(updateScore)
+                gameRef.push(newUser).then((snap) => {
+                    myId = snap.key 
+                })
 
                 $('p').text('You have solved the puzzle in ' + secs + ' seconds using ' + moves + ' moves!!');
                 $('article').addClass('glow-2');
                 moves = 0;
+
+                setTimeout(function(){
+                    window.location.href="/minigame2021/"; 
+                }, 500)
             }
           }, 1000);
 
