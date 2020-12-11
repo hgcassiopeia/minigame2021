@@ -11,54 +11,40 @@
     text-align: right;
   }
   .container {
-    background-color: blueviolet;
+    background-color: burlywood;
     justify-content: flex-end;
     float: right;
   }
   .pic{
     float: right;
-    display: block;
-    margin: 0 auto;
-    width: 40%;
-    display: -moz-box;
-    display: -webkit-box;
-    display: box;
-    -moz-box-pack: center;
-    -moz-box-align: center;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
-    box-pack: center;
-    box-align: center;
-    -moz-border-radius: 100px;
-    -webkit-border-radius: 100px;
-    border-radius: 100px;
-    width: 10%; 
-    float: right
   }
 </style>
 <body>
   <div>
-    <div class="container">
-      <div>
+    <div class="align-center">
         <h3 id="displayName"></h3>
         <h3 id="statusMessage"></h3>
-      </div>
-      <div>
-        <img style="width: 10%; float:right" class="pic" id="pictureUrl">
-      </div>
-    </div>
-    <div class="align-center">
-      <article>
-        <div class="pieces" id="piece-1"></div>
-        <div class="pieces" id="piece-2"></div>
-        <div class="pieces" id="piece-3"></div>
-        <div class="pieces" id="piece-4"></div>
-        <div class="pieces" id="piece-5"></div>
-        <div class="pieces" id="piece-6"></div>
-      </article>
-      
-      <p></p>
-    </div>
+        <ul>
+          <li style="float:left">
+              <a id="">count: 1236 <br>Move: 23 </a>
+          </li>
+          <li style="float:right">
+              <a><a id="statusMessage"></a><br><a id="statusMessage"></a></a>
+          </li>
+          <li style="float:right">
+              <img id="pictureUrl" class="pic">
+          </li>
+      </ul>
+    <article>
+      <div class="pieces" id="piece-1"></div>
+      <div class="pieces" id="piece-2"></div>
+      <div class="pieces" id="piece-3"></div>
+      <div class="pieces" id="piece-4"></div>
+      <div class="pieces" id="piece-5"></div>
+      <div class="pieces" id="piece-6"></div>
+    </article>
+    
+    <p></p>
   </div>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->

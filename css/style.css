@@ -6,6 +6,7 @@ body{
   line-height: 1.7em;
   padding: 0;
   margin: 0;
+  width: auto;
 }
 
 button {
@@ -29,7 +30,6 @@ button#btnClose{
 p {
   text-align: center;
 }
-
 
 #displayName {
   margin: 20px auto 5px auto;
@@ -66,7 +66,7 @@ article{
   width: 320px;
   height: 200px;
   background: #f2f2f2;
-  margin: 20px auto;
+
   position: relative;
   -webkit-transition: all 0.8s cubic-bezier(0.58, -0.55, 0.265, 1.45);
   -ms-transition: all 0.8s cubic-bezier(0.58, -0.55, 0.265, 1.45);
