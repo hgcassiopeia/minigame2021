@@ -57,7 +57,6 @@ var app = new Vue({
         resetGame() {
             stateRef.update({ start: false })
             gamesRef.remove()
-            window.location.href="/minigame2021/path/dashboard.html"; 
         }
     }
 })
