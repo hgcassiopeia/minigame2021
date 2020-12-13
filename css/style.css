@@ -318,7 +318,7 @@ hr{
   padding: 0!important;
 }
 
-.user-score{
+.game-page .user-score{
   background-color: #fff;
   color: #000;
   padding: 10px 0;
@@ -328,7 +328,7 @@ hr{
   width: 30px;
 }
 
-.user-score h3 {
+.game-page .user-score h3 {
   display: inline;
 }
 
@@ -365,7 +365,7 @@ hr{
   padding: 0!important;
 }
 
-.user-score {
+.game-page .user-score {
   --bs-gutter-x: initial!important;
 }
 

@@ -52,10 +52,12 @@ var app = new Vue({
         },
         eventListenerStart() {
             stateRef.update({ start: true })
+            window.location.href="/minigame2021/path/dashboard.html"; 
         },
         resetGame() {
             stateRef.update({ start: false })
             gamesRef.remove()
+            window.location.href="/minigame2021/path/dashboard.html"; 
         }
     }
 })
