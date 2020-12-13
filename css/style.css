@@ -220,6 +220,12 @@ hr{
   font-size: 8rem;
 }
 
+.round-title{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 6rem;
+}
+
 .btn-ctrl h1{
   font-size: 4rem!important;
 }
