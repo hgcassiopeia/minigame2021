@@ -81,7 +81,6 @@ $(document).ready(function(){
     }
 
     async function main() {
-        getUserProfile()
         await liff.init({ liffId: "1655315308-k2ZaAZZm" })
         if (liff.isLoggedIn()) {
             getUserProfile()
