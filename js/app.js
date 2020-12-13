@@ -67,13 +67,7 @@ $(document).ready(function(){
         profile = await liff.getProfile()
 
         document.getElementById("displayProfile").src = profile.pictureUrl
-        document.getElementById("statusMessage").append("Happy New Year ʕ •ᴥ• ʔ")
         document.getElementById("displayName").append(profile.displayName)
-    }
-
-    async function scanCode() {
-        const result = await liff.scanCode()
-        document.getElementById("scanCode").append(result.value)
     }
 
     async function main() {
@@ -83,6 +77,11 @@ $(document).ready(function(){
         } else {
             liff.login({ redirectUri: "/minigame2021/path" })
         }
+    }
+
+    async function scanCode() {
+        const result = await liff.scanCode()
+        document.getElementById("scanCode").append(result.value)
     }
 
     $(window).load(function(){
@@ -155,7 +154,7 @@ $(document).ready(function(){
 
                 setTimeout(function(){
                     $('#overlay').css("display", "block")
-                }, 3000)
+                }, 2000)
             }
           }, 1000);
 
