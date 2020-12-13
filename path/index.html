@@ -24,8 +24,8 @@
             </div>
             <div class="row time-move-score">
                 <div class="col blank-col"></div>
-                <div class="col">2</div>
-                <div class="col">14</div>
+                <div class="col time">0</div>
+                <div class="col move">0</div>
                 <div class="col blank-col"></div>
             </div>
         </div>
@@ -39,6 +39,22 @@
                 <div class="pieces" id="piece-6"></div>
             </article>
         </div>
+    </div>
+    <div id="overlay">
+      <div class="container">
+        <div class="card text-center">
+          <div class="card-header">
+            คะแนนของคุณ
+          </div>
+          <div class="card-body">
+            <h5 class="card-title result-score">คะแนนของคุณ</h5>
+            <p class="card-text">หากคุณได้ไปต่อกด "Scan QR" ถ้าไม่ใช่กด "Close" เพื่อปิดเกม</p>
+            <div id="scanCode"></div>
+            <button class="btn btn-outline-primary my-2" click="scanCode()">Scan QR</button>
+            <button class="btn btn-outline-danger" click="closed()">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>

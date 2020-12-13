@@ -30,6 +30,15 @@ $(document).ready(function(){
     var myId = 0;
     var profile = {};
 
+    function scanCode() {
+        const result = await liff.scanCode()
+        document.getElementById("scanCode").append(result.value)
+    }
+
+    function closed() {
+        liff.closeWindow()
+    }
+
     //  shuffle the tiles
     function shuffleTiles(){
         if(shuffle == 1){
@@ -72,6 +81,7 @@ $(document).ready(function(){
     }
 
     async function main() {
+        getUserProfile()
         await liff.init({ liffId: "1655315308-k2ZaAZZm" })
         if (liff.isLoggedIn()) {
             getUserProfile()
@@ -84,7 +94,8 @@ $(document).ready(function(){
         setTimeout(function(){
             shuffleTiles();
             setInterval(function(){ 
-            secs++ 
+                $(".time-move-score>.time").text(secs)
+                secs++ 
             }, 500);
         }, 500);
     });
@@ -118,6 +129,7 @@ $(document).ready(function(){
 
           //  test for the win
           setTimeout(function(){
+            $(".time-move-score>.move").text(moves)
             if(
               $('#piece-1').css('left') == '0px' && $('#piece-1').css('top') == '0px' && 
               $('#piece-2').css('left') == '100px' && $('#piece-2').css('top') == '0px' &&
@@ -126,15 +138,6 @@ $(document).ready(function(){
               $('#piece-5').css('left') == '100px' && $('#piece-5').css('top') == '100px' &&
               $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' 
             ){
-                // const gameRef = dbRef.child('games/' + myId);
-                // let updateScore = {
-                //     userId: profile.userId,
-                //     displayName: profile.displayName,
-                //     pictureUrl: profile.pictureUrl,
-                //     timeScore: secs,
-                //     moveScore: moves
-                // }
-                // gameRef.update(updateScore)
                 const gameRef = dbRef.child('games');
                 let newUser = {
                     userId: profile.userId,
@@ -147,13 +150,11 @@ $(document).ready(function(){
                     myId = snap.key 
                 })
 
-                $('p').text('You have solved the puzzle in ' + secs + ' seconds using ' + moves + ' moves!!');
+                $('.result-score').text('คุณใช้เวลา ' + secs + ' วิ และขยับ ' + moves + ' ครั้ง!!');
                 $('article').addClass('glow-2');
                 moves = 0;
 
-                setTimeout(function(){
-                    window.location.href="/minigame2021/"; 
-                }, 5000)
+                $('#overlay').css("display", "block")
             }
           }, 1000);
 
