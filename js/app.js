@@ -76,10 +76,6 @@ $(document).ready(function(){
         document.getElementById("scanCode").append(result.value)
     }
 
-    function closed() {
-        liff.closeWindow()
-    }
-
     async function main() {
         await liff.init({ liffId: "1655315308-k2ZaAZZm" })
         if (liff.isLoggedIn()) {
@@ -98,6 +94,10 @@ $(document).ready(function(){
             }, 500);
         }, 500);
     });
+
+    $("#scanBtn").click(function() {
+        scanCode()
+    })
 
     //  play the game
     $('.pieces').click(function(){
@@ -153,7 +153,9 @@ $(document).ready(function(){
                 $('article').addClass('glow-2');
                 moves = 0;
 
-                $('#overlay').css("display", "block")
+                setTimeout(function(){
+                    $('#overlay').css("display", "block")
+                }, 3000)
             }
           }, 1000);
 
