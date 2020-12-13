@@ -81,6 +81,9 @@ $(document).ready(function(){
 
     async function scanCode() {
         window.location = "https://line.me/R/nv/QRCodeReader"
+    }
+
+    function getQR() {
         await liff.init({ liffId: "1655315308-k2ZaAZZm" })
 
         const queryString = decodeURIComponent(window.location.search)
@@ -170,5 +173,6 @@ $(document).ready(function(){
     });  //  end the click function
 
     main()
+    getQR()
 })
 
