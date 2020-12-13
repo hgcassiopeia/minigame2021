@@ -79,9 +79,10 @@ $(document).ready(function(){
         }
     }
 
-    async function scanCode() {
-        const result = await liff.scanCode()
-        document.getElementById("scanCode").append(result.value)
+    function scanCode() {
+        liff.closeWindow()
+        // const result = await liff.scanCode()
+        // document.getElementById("scanCode").append(result.value)
     }
 
     $(window).load(function(){
