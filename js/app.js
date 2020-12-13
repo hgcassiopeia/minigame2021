@@ -66,7 +66,7 @@ $(document).ready(function(){
     async function getUserProfile() {
         profile = await liff.getProfile()
 
-        document.getElementById("pictureUrl").src = profile.pictureUrl
+        document.getElementById("displayProfile").src = profile.pictureUrl
         document.getElementById("statusMessage").append("Happy New Year ʕ •ᴥ• ʔ")
         document.getElementById("displayName").append(profile.displayName)
     }

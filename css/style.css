@@ -65,7 +65,7 @@ p {
 }
 
 article{
-  width: 320px;
+  width: 300px;
   height: 200px;
   background: #f2f2f2;
 
@@ -161,25 +161,6 @@ article{
   text-align: right;
 }
 
-.pic{
-  display: block;
-  margin: 0 auto;
-  width: 10%;
-  display: -moz-box;
-  display: -webkit-box;
-  display: box;
-  -moz-box-pack: center;
-  -moz-box-align: center;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  box-pack: center;
-  box-align: center;
-  -moz-border-radius: 100px;
-  -webkit-border-radius: 100px;
-  border-radius: 100px;
-  float: right;
-  
-}
 ul {
   list-style-type: none;
   margin: 0;
@@ -273,6 +254,27 @@ hr{
   border-radius: 50px;
 }
 
+.first-page {
+  background-color: #8449c6;
+  color: #fff;
+  height: 100vh;
+}
+
+.game-title{
+  font-size: 3rem;
+  color: #000;
+  background-color: #ffffff;
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+}
+
+.animate-flicker {
+  font-size: 2rem;
+  animation: fadeIn 1s infinite alternate;
+}
+
 .glow-on-hover:active {
   color: #000
 }
@@ -301,4 +303,62 @@ hr{
   0% { background-position: 0 0; }
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
+}
+
+.game-page {
+  background-color: #45a2e5;
+  color: #000;
+  height: 100vh;
+  padding: 0!important;
+}
+
+.user-score{
+  background-color: #fff;
+  color: #000;
+  padding: 10px 0;
+}
+
+.pic {
+  width: 30px;
+}
+
+.user-score h3 {
+  display: inline;
+}
+
+.time-move-title .col {
+  color: #000;
+  background-color: #fff;
+  font-size: 1.2rem;
+  margin: 0 4px;
+}
+
+.time-move-score .col {
+  padding-top: 10px;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.blank-col {
+  background-color: #45a2e5!important;
+}
+
+.game {
+  margin-top: 50px;
+}
+
+.game article {
+  margin: 0 auto;
+}
+
+.score {
+  margin-top: 50px!important;
+}
+
+.user {
+  padding: 0!important;
+}
+
+.user-score {
+  --bs-gutter-x: initial!important;
 }
