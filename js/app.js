@@ -81,16 +81,13 @@ $(document).ready(function(){
 
     async function scanCode() {
         window.location = "https://line.me/R/nv/QRCodeReader"
-    }
+        // await liff.init({ liffId: "1655315308-k2ZaAZZm" })
 
-    function getQR() {
-        await liff.init({ liffId: "1655315308-k2ZaAZZm" })
-
-        const queryString = decodeURIComponent(window.location.search)
-        const params = new URLSearchParams(queryString)
-        if(params.get("param") !== null) {
-            document.getElementById("scanCode").append(result.value)
-        }
+        // const queryString = decodeURIComponent(window.location.search)
+        // const params = new URLSearchParams(queryString)
+        // if(params.get("param") !== null) {
+        //     document.getElementById("scanCode").append(result.value)
+        // }
     }
 
     $(window).load(function(){
@@ -173,6 +170,5 @@ $(document).ready(function(){
     });  //  end the click function
 
     main()
-    getQR()
 })
 
