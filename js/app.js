@@ -79,10 +79,15 @@ $(document).ready(function(){
         }
     }
 
-    function scanCode() {
-        liff.closeWindow()
-        // const result = await liff.scanCode()
-        // document.getElementById("scanCode").append(result.value)
+    async function scanCode() {
+        window.location = "https://line.me/R/nv/QRCodeReader"
+        await liff.init({ liffId: "1655315308-k2ZaAZZm" })
+
+        const queryString = decodeURIComponent(window.location.search)
+        const params = new URLSearchParams(queryString)
+        if(params.get("param") !== null) {
+            document.getElementById("scanCode").append(result.value)
+        }
     }
 
     $(window).load(function(){
