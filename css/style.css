@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 body{
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: 'Itim', cursive, 'Open Sans', Arial, sans-serif;
   font-size: 14px;
   color: #616c84;
   background: #ffffff;
@@ -195,4 +197,108 @@ li{
   text-align: center;
   padding: 10px 5px;
   text-decoration: none;
+}
+
+.bg-dashboard {
+ background-color: #FFC300;
+}
+
+#title-dashboard{
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom: 5px solid #dbdbdb;
+}
+
+.bg-white{
+  background-color: #ffffff;
+}
+
+hr{
+  margin: 0;
+}
+
+.first {
+  color: #000000;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.other{
+  color: #000000;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.black {
+  color: #000;
+}
+
+.ready-title{
+  margin-top: 10px;
+  margin-bottom: 50px;
+  font-size: 8rem;
+}
+
+.btn-ctrl h1{
+  font-size: 4rem!important;
+}
+
+.glow-on-hover {
+  width: 320px;
+  height: 160px;
+  border: none;
+  outline: none;
+  color: #111 ;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 50px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 50px;
+}
+
+.glow-on-hover:active {
+  color: #000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
 }
