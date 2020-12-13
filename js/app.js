@@ -30,15 +30,6 @@ $(document).ready(function(){
     var myId = 0;
     var profile = {};
 
-    async function scanCode() {
-        const result = await liff.scanCode()
-        document.getElementById("scanCode").append(result.value)
-    }
-
-    function closed() {
-        liff.closeWindow()
-    }
-
     //  shuffle the tiles
     function shuffleTiles(){
         if(shuffle == 1){
@@ -78,6 +69,15 @@ $(document).ready(function(){
         document.getElementById("displayProfile").src = profile.pictureUrl
         document.getElementById("statusMessage").append("Happy New Year ʕ •ᴥ• ʔ")
         document.getElementById("displayName").append(profile.displayName)
+    }
+
+    async function scanCode() {
+        const result = await liff.scanCode()
+        document.getElementById("scanCode").append(result.value)
+    }
+
+    function closed() {
+        liff.closeWindow()
     }
 
     async function main() {
