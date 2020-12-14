@@ -91,10 +91,18 @@ $(document).ready(function(){
 
     function eventListenerStartFinal() {
         const stateRef = dbRef.child('state');
-        stateRef.on("child_changed", snap => {
-            onStart = snap.val()
-            if(onStart) goToStartFinal()
+        const gameRef = dbRef.child('games');
+
+        gameRef.once("value").then(snap => {
+            console.log(snap.val());
+        }).catch(error => {
+            console.log("error", error)
         })
+
+        // stateRef.on("child_changed", snap => {
+        //     onStart = snap.val()
+        //     if(onStart) goToStartFinal()
+        // })
     }
     
     function goToStartFinal() {
