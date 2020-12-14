@@ -41,7 +41,7 @@ var app = new Vue({
                 }
                 this.gameList.push(tmp)
                 this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
-                this.gameList = this.gameList.slice(0, 2)
+                this.gameList = this.gameList.slice(0, 10)
                 
                 let foundIndex = this.gameList.findIndex(item => item.key == key)
                 if(foundIndex >= 0){
