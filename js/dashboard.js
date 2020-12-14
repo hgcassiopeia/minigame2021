@@ -42,6 +42,7 @@ var app = new Vue({
                 this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
                 this.gameList = this.gameList.slice(0, 1)
                 console.log("TEST", this.gameList)
+                let foundIndex = this.gameList.findIndex(item => item.key == key)
                 if(foundIndex >= 0){
                     dbRef.child(`games/${key}`).update({ finalRound: true })
                 } else {
