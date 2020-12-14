@@ -29,33 +29,41 @@ var app = new Vue({
     },
     methods: {
         initFirebase() {
-            gamesRef.orderByChild("timeScore").on("child_added", snap => {
+            gamesRef.on("child_added", snap => {
                 let game = snap.val();
                 let tmp = {
                     key: snap.key,
                     displayName: game.displayName,
                     timeScore: game.timeScore,
-                    moveScore: game.moveScore
+                    moveScore: game.moveScore,
+                    finalRound: false
                 }
                 this.gameList.push(tmp)
                 this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
-                this.gameList = this.gameList.slice(0, 10)
+                this.gameList = this.gameList.slice(0, 3)
             });
 
-            gamesRef.orderByChild("timeScore").on("child_changed", snap => {
+            gamesRef.on("child_changed", snap => {
                 let game = snap.val();
+                let key = snap.key;
                 this.gameList.map(gl => {
-                    if(gl.key == snap.key){
+                    if(gl.key == key){
                         gl.timeScore = game.timeScore
                         gl.moveScore = game.moveScore
                     }
                     return gl
                 })
                 this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
-                this.gameList = this.gameList.slice(0, 10)
+                this.gameList = this.gameList.slice(0, 3)
+                let foundIndex = this.gameList.findIndex(item => item.key == key)
+                if(foundIndex >= 0){
+                    dbRef.child(`games/${key}`).update({ finalRound: true })
+                } else {
+                    dbRef.child(`games/${key}`).update({ finalRound: false })
+                }
             })
 
-            finalRef.orderByChild("timeScore").on("child_added", snap => {
+            finalRef.on("child_added", snap => {
                 let game = snap.val();
                 let tmp = {
                     key: snap.key,
@@ -68,7 +76,7 @@ var app = new Vue({
                 this.finalList = this.finalList.slice(0, 3)
             });
 
-            finalRef.orderByChild("timeScore").on("child_changed", snap => {
+            finalRef.on("child_changed", snap => {
                 let game = snap.val();
                 this.finalList.map(gl => {
                     if(gl.key == snap.key){
@@ -99,3 +107,5 @@ var app = new Vue({
         }
     }
 })
+
+exports.

@@ -93,16 +93,18 @@ $(document).ready(function(){
         const stateRef = dbRef.child('state');
         const gameRef = dbRef.child('games');
 
-        gameRef.once("value").then(snap => {
-            console.log(snap.val());
-        }).catch(error => {
-            console.log("error", error)
+        gameRef.on("child_changed", snap => {
+            let game = snap.val();
+            console.log("FinalGame: ", game.finalRound)
+            if(game.finalRound) {
+                stateRef.on("child_changed", snap => {
+                    onStart = snap.val()
+                    if(onStart) goToStartFinal()
+                })
+            } else {
+                $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
+            }
         })
-
-        // stateRef.on("child_changed", snap => {
-        //     onStart = snap.val()
-        //     if(onStart) goToStartFinal()
-        // })
     }
     
     function goToStartFinal() {
