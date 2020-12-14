@@ -51,26 +51,26 @@ var app = new Vue({
                 }
             });
 
-            gamesRef.on("child_changed", snap => {
-                let game = snap.val();
-                let key = snap.key;
-                this.gameList.map(gl => {
-                    if(gl.key == key){
-                        gl.timeScore = game.timeScore
-                        gl.moveScore = game.moveScore
-                    }
-                    return gl
-                })
-                this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
-                this.gameList = this.gameList.slice(0, 1)
-                // let foundIndex = this.gameList.findIndex(item => item.key == key)
-                // console.log("TEST", this.gameList)
-                // if(foundIndex >= 0){
-                //     dbRef.child(`games/${key}`).update({ finalRound: true })
-                // } else {
-                //     dbRef.child(`games/${key}`).update({ finalRound: false })
-                // }
-            })
+            // gamesRef.on("child_changed", snap => {
+            //     let game = snap.val();
+            //     let key = snap.key;
+            //     this.gameList.map(gl => {
+            //         if(gl.key == key){
+            //             gl.timeScore = game.timeScore
+            //             gl.moveScore = game.moveScore
+            //         }
+            //         return gl
+            //     })
+            //     this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
+            //     this.gameList = this.gameList.slice(0, 1)
+            //     // let foundIndex = this.gameList.findIndex(item => item.key == key)
+            //     // console.log("TEST", this.gameList)
+            //     // if(foundIndex >= 0){
+            //     //     dbRef.child(`games/${key}`).update({ finalRound: true })
+            //     // } else {
+            //     //     dbRef.child(`games/${key}`).update({ finalRound: false })
+            //     // }
+            // })
 
             finalRef.on("child_added", snap => {
                 let game = snap.val();
@@ -85,18 +85,18 @@ var app = new Vue({
                 this.finalList = this.finalList.slice(0, 3)
             });
 
-            finalRef.on("child_changed", snap => {
-                let game = snap.val();
-                this.finalList.map(gl => {
-                    if(gl.key == snap.key){
-                        gl.timeScore = game.timeScore
-                        gl.moveScore = game.moveScore
-                    }
-                    return gl
-                })
-                this.finalList = this.finalList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
-                this.finalList = this.finalList.slice(0, 3)
-            })
+            // finalRef.on("child_changed", snap => {
+            //     let game = snap.val();
+            //     this.finalList.map(gl => {
+            //         if(gl.key == snap.key){
+            //             gl.timeScore = game.timeScore
+            //             gl.moveScore = game.moveScore
+            //         }
+            //         return gl
+            //     })
+            //     this.finalList = this.finalList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
+            //     this.finalList = this.finalList.slice(0, 3)
+            // })
         },
         eventListenerStart() {
             stateRef.update({ start: true })

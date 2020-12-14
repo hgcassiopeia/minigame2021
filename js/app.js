@@ -85,7 +85,7 @@ $(document).ready(function(){
             setInterval(function(){ 
                 $(".time-move-score>.time").text(secs)
                 secs++ 
-            }, 500);
+            }, 1000);
         }, 500);
     });
 
@@ -93,16 +93,18 @@ $(document).ready(function(){
         const stateRef = dbRef.child('state');
         const gameRef = dbRef.child('games');
 
-        gameRef.on("child_changed", snap => {
-            let game = snap.val();
-            console.log("FinalGame: ", game.finalRound)
-            if(game.finalRound) {
-                stateRef.on("child_changed", snap => {
-                    onStart = snap.val()
-                    if(onStart) goToStartFinal()
+        stateRef.on("child_changed", snap => {
+            onStart = snap.val()
+            if(onStart) {
+                gameRef.on("child_changed", snap => {
+                    let game = snap.val();
+                    console.log("FinalGame: ", game.finalRound)
+                    if(game.finalRound) {
+                        goToStartFinal()
+                    } else {
+                        $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
+                    }
                 })
-            } else {
-                $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
             }
         })
     }
