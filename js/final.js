@@ -39,6 +39,9 @@ $(document).ready(function(){
             $('#piece-4').css({top: 0, left: 100});
             $('#piece-5').css({top: 100, left: 0});
             $('#piece-6').css({top: 0, left: 0});
+            $('#piece-7').css({top: 200, left: 200});
+            $('#piece-8').css({top: 200, left: 0});
+            $('#piece-9').css({top: 200, left: 100});
         } else if(shuffle == 2){
             $('#piece-1').css({top: 100, left: 0});
             $('#piece-2').css({top: 0, left: 0});
@@ -46,6 +49,9 @@ $(document).ready(function(){
             $('#piece-4').css({top: 0, left: 100});
             $('#piece-5').css({top: 100, left: 200});
             $('#piece-6').css({top: 0, left: 200});
+            $('#piece-7').css({top: 200, left: 200});
+            $('#piece-8').css({top: 200, left: 0});
+            $('#piece-9').css({top: 200, left: 100});
         } else if(shuffle == 3){
             $('#piece-1').css({top: 0, left: 200});
             $('#piece-2').css({top: 0, left: 0});
@@ -53,6 +59,9 @@ $(document).ready(function(){
             $('#piece-4').css({top: 100, left: 200});
             $('#piece-5').css({top: 0, left: 100});
             $('#piece-6').css({top: 100, left: 0});
+            $('#piece-7').css({top: 200, left: 200});
+            $('#piece-8').css({top: 200, left: 0});
+            $('#piece-9').css({top: 200, left: 100});
         } else if(shuffle == 4){
             $('#piece-1').css({top: 0, left: 200});
             $('#piece-2').css({top: 100, left: 200});
@@ -60,6 +69,9 @@ $(document).ready(function(){
             $('#piece-4').css({top: 100, left: 100});
             $('#piece-5').css({top: 0, left: 0});
             $('#piece-6').css({top: 100, left: 0});
+            $('#piece-7').css({top: 200, left: 200});
+            $('#piece-8').css({top: 200, left: 0});
+            $('#piece-9').css({top: 200, left: 100});
         }
     }
 
@@ -125,7 +137,10 @@ $(document).ready(function(){
               $('#piece-3').css('left') == '200px' && $('#piece-3').css('top') == '0px' &&
               $('#piece-4').css('left') == '0px' && $('#piece-4').css('top') == '100px' &&
               $('#piece-5').css('left') == '100px' && $('#piece-5').css('top') == '100px' &&
-              $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' 
+              $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' &&
+              $('#piece-7').css('left') == '0px' && $('#piece-4').css('top') == '200px' &&
+              $('#piece-8').css('left') == '100px' && $('#piece-5').css('top') == '200px' &&
+              $('#piece-9').css('left') == '200px' && $('#piece-6').css('top') == '200px' 
             ){
                 const finalRef = dbRef.child('final');
                 let newUser = {
