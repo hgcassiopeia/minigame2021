@@ -93,7 +93,7 @@ var app = new Vue({
         },
         resetGameFinal() {
             stateRef.update({ startFinal: false })
-            stateRef.remove()
+            finalRef.remove()
         }
     }
 })
