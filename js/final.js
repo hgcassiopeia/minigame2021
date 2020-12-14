@@ -97,7 +97,7 @@ $(document).ready(function(){
             setInterval(function(){ 
                 $(".time-move-score>.time").text(secs)
                 secs++ 
-            }, 500);
+            }, 1000);
         }, 500);
     });
 
@@ -138,9 +138,9 @@ $(document).ready(function(){
               $('#piece-4').css('left') == '0px' && $('#piece-4').css('top') == '100px' &&
               $('#piece-5').css('left') == '100px' && $('#piece-5').css('top') == '100px' &&
               $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' &&
-              $('#piece-7').css('left') == '0px' && $('#piece-4').css('top') == '200px' &&
-              $('#piece-8').css('left') == '100px' && $('#piece-5').css('top') == '200px' &&
-              $('#piece-9').css('left') == '200px' && $('#piece-6').css('top') == '200px' 
+              $('#piece-7').css('left') == '0px' && $('#piece-7').css('top') == '200px' &&
+              $('#piece-8').css('left') == '100px' && $('#piece-8').css('top') == '200px' &&
+              $('#piece-9').css('left') == '200px' && $('#piece-9').css('top') == '200px' 
             ){
                 const finalRef = dbRef.child('final');
                 let newUser = {
