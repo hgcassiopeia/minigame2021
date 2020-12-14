@@ -31,6 +31,7 @@ var app = new Vue({
         initFirebase() {
             gamesRef.on("child_added", snap => {
                 let game = snap.val();
+                let key = snap.key;
                 let tmp = {
                     key: snap.key,
                     displayName: game.displayName,
