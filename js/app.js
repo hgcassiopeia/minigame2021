@@ -97,17 +97,12 @@ $(document).ready(function(){
             if(onStart) {
                 const gameRef = dbRef.child(`games/${myId}/finalRound`);
                 gameRef.on("value", snap => {
-                    console.log("CHECK :",snap.val())
+                    if(snap.val()) {
+                        goToStartFinal()
+                    } else {
+                        $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
+                    }
                 })
-                // gameRef.on("child_changed", snap => {
-                //     let game = snap.val();
-                //     console.log("FinalGame: ", game.finalRound)
-                //     if(game.finalRound) {
-                //         goToStartFinal()
-                //     } else {
-                //         $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
-                //     }
-                // })
             }
         })
     }
