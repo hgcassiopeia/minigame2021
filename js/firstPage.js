@@ -26,13 +26,13 @@ var app = new Vue({
     eventListenerStart() {
       stateRef.on("child_changed", snap => {
           let state = snap.val()
-          console.log("state:", state)
           this.onStart = state.start
           if(this.onStart) this.goToStart()
       })
     },
     goToStart() {
-      window.location.href="/minigame2021/path/?param=1"; 
+      console.log("Go!")
+      window.location.href="/minigame2021/path"; 
     }
   }
 })
