@@ -107,5 +107,3 @@ var app = new Vue({
         }
     }
 })
-
-exports.
