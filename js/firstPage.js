@@ -25,11 +25,9 @@ var app = new Vue({
   methods: {
     eventListenerStart() {
       stateRef.on("child_changed", snap => {
-          let state = snap.val()
-          this.onStart = state.start
+          this.onStart = snap.val()
           console.log("onStart::", this.onStart)
           if(this.onStart) {
-            console.log("START::", this.onStart)
             this.goToStart()
           }
       })
