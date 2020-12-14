@@ -92,7 +92,10 @@ $(document).ready(function(){
     function eventListenerStartFinal() {
         const stateRef = dbRef.child('state');
         const gameRef = dbRef.child(`games/${myId}/finalRound`);
-        console.log("CHECK :",gameRef)
+        
+        gameRef.on("value", snap => {
+            console.log("CHECK :",snap.val())
+        })
         // stateRef.on("child_changed", snap => {
         //     onStart = snap.val()
         //     if(onStart) {
