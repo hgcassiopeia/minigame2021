@@ -38,6 +38,7 @@ var app = new Vue({
                     moveScore: game.moveScore
                 }
                 this.gameList.push(tmp)
+                this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
                 this.gameList = this.gameList.slice(0, 10)
             });
 
@@ -63,7 +64,8 @@ var app = new Vue({
                     moveScore: game.moveScore
                 }
                 this.finalList.push(tmp)
-                this.finalList = this.finalList.slice(0, 10)
+                this.finalList = this.finalList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
+                this.finalList = this.finalList.slice(0, 3)
             });
 
             finalRef.orderByChild("timeScore").on("child_changed", snap => {
@@ -76,7 +78,7 @@ var app = new Vue({
                     return gl
                 })
                 this.finalList = this.finalList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
-                this.finalList = this.finalList.slice(0, 10)
+                this.finalList = this.finalList.slice(0, 3)
             })
         },
         eventListenerStart() {

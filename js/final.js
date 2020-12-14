@@ -89,18 +89,6 @@ $(document).ready(function(){
         }, 500);
     });
 
-    function eventListenerStartFinal() {
-        const stateRef = dbRef.child('state');
-        stateRef.on("child_changed", snap => {
-            onStart = snap.val()
-            if(onStart) goToStartFinal()
-        })
-    }
-    
-    function goToStartFinal() {
-        window.location.href="/minigame2021/path/final.html"; 
-    }
-
     //  play the game
     $('.pieces').click(function(){
 
@@ -139,7 +127,7 @@ $(document).ready(function(){
               $('#piece-5').css('left') == '100px' && $('#piece-5').css('top') == '100px' &&
               $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' 
             ){
-                const gameRef = dbRef.child('games');
+                const finalRef = dbRef.child('final');
                 let newUser = {
                     userId: profile.userId,
                     displayName: profile.displayName,
@@ -147,7 +135,7 @@ $(document).ready(function(){
                     timeScore: secs,
                     moveScore: moves
                 }
-                gameRef.push(newUser).then((snap) => {
+                finalRef.push(newUser).then((snap) => {
                     myId = snap.key 
                 })
 
@@ -157,7 +145,6 @@ $(document).ready(function(){
 
                 setTimeout(function(){
                     $('#overlay').css("display", "block")
-                    eventListenerStartFinal()
                 }, 1000)
             }
           }, 1000);
@@ -169,4 +156,3 @@ $(document).ready(function(){
 
     main()
 })
-
