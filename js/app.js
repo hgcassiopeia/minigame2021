@@ -79,17 +79,6 @@ $(document).ready(function(){
         }
     }
 
-    async function scanCode() {
-        window.location = "https://line.me/R/nv/QRCodeReader"
-        // await liff.init({ liffId: "1655315308-k2ZaAZZm" })
-
-        // const queryString = decodeURIComponent(window.location.search)
-        // const params = new URLSearchParams(queryString)
-        // if(params.get("param") !== null) {
-        //     document.getElementById("scanCode").append(result.value)
-        // }
-    }
-
     $(window).load(function(){
         setTimeout(function(){
             shuffleTiles();
@@ -103,6 +92,18 @@ $(document).ready(function(){
     $("#scanBtn").click(function() {
         scanCode()
     })
+
+    function eventListenerStartFinal() {
+        const stateRef = dbRef.child('state/startFinal');
+        stateRef.on("child_changed", snap => {
+            onStart = snap.val()
+            if(onStart) goToStartFinal()
+        })
+    }
+    
+    function goToStartFinal() {
+        window.location.href="/minigame2021/path/final.html"; 
+    }
 
     //  play the game
     $('.pieces').click(function(){
@@ -160,7 +161,8 @@ $(document).ready(function(){
 
                 setTimeout(function(){
                     $('#overlay').css("display", "block")
-                }, 2000)
+                    eventListenerStartFinal()
+                }, 1000)
             }
           }, 1000);
 

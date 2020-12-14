@@ -14,13 +14,15 @@ firebase.analytics();
 
 const dbRef = firebase.database().ref();
 const gamesRef = dbRef.child('games');
+const finalRef = dbRef.child('final');
 const stateRef = dbRef.child('state');
 
 var app = new Vue({
     el: '#app',
     data: {
         message: 'Hello Vue!',
-        gameList: []
+        gameList: [],
+        finalList: []
     },
     created() {
         this.initFirebase()
@@ -36,9 +38,10 @@ var app = new Vue({
                     moveScore: game.moveScore
                 }
                 this.gameList.push(tmp)
+                this.gameList = this.gameList.slice(0, 10)
             });
 
-            gamesRef.orderByChild("timeScore").limitToFirst(5).on("child_changed", snap => {
+            gamesRef.orderByChild("timeScore").on("child_changed", snap => {
                 let game = snap.val();
                 this.gameList.map(gl => {
                     if(gl.key == snap.key){
@@ -48,6 +51,32 @@ var app = new Vue({
                     return gl
                 })
                 this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
+                this.gameList = this.gameList.slice(0, 10)
+            })
+
+            finalRef.orderByChild("timeScore").on("child_added", snap => {
+                let game = snap.val();
+                let tmp = {
+                    key: snap.key,
+                    displayName: game.displayName,
+                    timeScore: game.timeScore,
+                    moveScore: game.moveScore
+                }
+                this.finalList.push(tmp)
+                this.finalList = this.finalList.slice(0, 10)
+            });
+
+            finalRef.orderByChild("timeScore").on("child_changed", snap => {
+                let game = snap.val();
+                this.finalList.map(gl => {
+                    if(gl.key == snap.key){
+                        gl.timeScore = game.timeScore
+                        gl.moveScore = game.moveScore
+                    }
+                    return gl
+                })
+                this.finalList = this.finalList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
+                this.finalList = this.finalList.slice(0, 10)
             })
         },
         eventListenerStart() {
@@ -57,6 +86,14 @@ var app = new Vue({
         resetGame() {
             stateRef.update({ start: false })
             gamesRef.remove()
+        },
+        eventListenerStartFinal() {
+            stateRef.update({ startFinal: true })
+            window.location.href="/minigame2021/path/dashboardFinal.html"; 
+        },
+        resetGameFinal() {
+            stateRef.update({ startFinal: false })
+            stateRef.remove()
         }
     }
 })

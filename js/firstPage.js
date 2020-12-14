@@ -12,7 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const dbRef = firebase.database().ref();
-const stateRef = dbRef.child('state');
+const stateRef = dbRef.child('state/start');
 
 var app = new Vue({
   el: '#app',
@@ -34,15 +34,6 @@ var app = new Vue({
     }
   }
 })
-
-function closed() {
-  liff.closeWindow()
-}
-
-async function scanCode() {
-  const result = await liff.scanCode()
-  document.getElementById("scanCode").append(result.value)
-}
 
 async function getUserProfile() {
   const profile = await liff.getProfile()
