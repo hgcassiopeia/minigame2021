@@ -91,26 +91,25 @@ $(document).ready(function(){
 
     function eventListenerStartFinal() {
         const stateRef = dbRef.child('state');
-        const gameRef = dbRef.child(`games/${myId}/finalRound`);
         
-        gameRef.on("value", snap => {
-            console.log("CHECK :",snap.val())
+        stateRef.on("child_changed", snap => {
+            onStart = snap.val()
+            if(onStart) {
+                const gameRef = dbRef.child(`games/${myId}/finalRound`);
+                gameRef.on("value", snap => {
+                    console.log("CHECK :",snap.val())
+                })
+                // gameRef.on("child_changed", snap => {
+                //     let game = snap.val();
+                //     console.log("FinalGame: ", game.finalRound)
+                //     if(game.finalRound) {
+                //         goToStartFinal()
+                //     } else {
+                //         $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
+                //     }
+                // })
+            }
         })
-        // stateRef.on("child_changed", snap => {
-        //     onStart = snap.val()
-        //     if(onStart) {
-        //         gameRef.isEqualTo(myId)
-        //         gameRef.on("child_changed", snap => {
-        //             let game = snap.val();
-        //             console.log("FinalGame: ", game.finalRound)
-        //             if(game.finalRound) {
-        //                 goToStartFinal()
-        //             } else {
-        //                 $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
-        //             }
-        //         })
-        //     }
-        // })
     }
     
     function goToStartFinal() {
