@@ -101,16 +101,16 @@ $(document).ready(function(){
         }, 500);
     });
 
-    function eventListenerStartSecond() {
+    function eventListenerStartFinal() {
         const stateRef = dbRef.child('state');
         
         stateRef.on("child_changed", snap => {
             onStart = snap.val()
             if(onStart) {
-                const gameRef = dbRef.child(`games/${myId}/secondRound`);
+                const gameRef = dbRef.child(`second/${myId}/finalRound`);
                 gameRef.on("value", snap => {
                     if(snap.val()) {
-                        goToStartSecond()
+                        goToStartFinal()
                     } else {
                         $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
                     }
@@ -119,8 +119,8 @@ $(document).ready(function(){
         })
     }
     
-    function goToStartSecond() {
-        window.location.href="/minigame2021/path/second.html"; 
+    function goToStartFinal() {
+        window.location.href="/minigame2021/path/final.html"; 
     }
 
     //  play the game
@@ -164,14 +164,15 @@ $(document).ready(function(){
               $('#piece-8').css('left') == '100px' && $('#piece-8').css('top') == '200px' &&
               $('#piece-9').css('left') == '200px' && $('#piece-9').css('top') == '200px' 
             ){
-                const gameRef = dbRef.child('games');
+                const gameRef = dbRef.child('second');
                 let newUser = {
                     userId: profile.userId,
                     displayName: profile.displayName,
                     pictureUrl: profile.pictureUrl,
                     timeScore: secs,
                     moveScore: moves,
-                    secondRound: false
+                    secondRound: false,
+                    finalRound: false
                 }
                 gameRef.push(newUser).then((snap) => {
                     myId = snap.key 
@@ -183,7 +184,7 @@ $(document).ready(function(){
 
                 setTimeout(function(){
                     $('#overlay').css("display", "block")
-                    eventListenerStartSecond()
+                    eventListenerStartFinal()
                 }, 1000)
             }
           }, 1000);
@@ -195,4 +196,3 @@ $(document).ready(function(){
 
     main()
 })
-

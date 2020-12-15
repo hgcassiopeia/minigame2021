@@ -14,6 +14,7 @@ firebase.analytics();
 
 const dbRef = firebase.database().ref();
 const gamesRef = dbRef.child('games');
+const secondRef = dbRef.child('second');
 const finalRef = dbRef.child('final');
 const stateRef = dbRef.child('state');
 
@@ -22,6 +23,7 @@ var app = new Vue({
     data: {
         message: 'Hello Vue!',
         gameList: [],
+        secondList: [],
         finalList: []
     },
     created() {
@@ -37,7 +39,7 @@ var app = new Vue({
                     displayName: game.displayName,
                     timeScore: game.timeScore,
                     moveScore: game.moveScore,
-                    finalRound: false
+                    secondRound: false
                 }
                 this.gameList.push(tmp)
                 this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
@@ -45,9 +47,31 @@ var app = new Vue({
                 
                 let foundIndex = this.gameList.findIndex(item => item.key == key)
                 if(foundIndex >= 0){
-                    dbRef.child(`games/${key}`).update({ finalRound: true })
+                    dbRef.child(`games/${key}`).update({ secondRound: true })
                 } else {
-                    dbRef.child(`games/${key}`).update({ finalRound: false })
+                    dbRef.child(`games/${key}`).update({ secondRound: false })
+                }
+            });
+
+            secondRef.on("child_added", snap => {
+                let game = snap.val();
+                let key = snap.key;
+                let tmp = {
+                    key: snap.key,
+                    displayName: game.displayName,
+                    timeScore: game.timeScore,
+                    moveScore: game.moveScore,
+                    finalRound: false
+                }
+                this.gameList.push(tmp)
+                this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
+                this.gameList = this.gameList.slice(0, 5)
+                
+                let foundIndex = this.gameList.findIndex(item => item.key == key)
+                if(foundIndex >= 0){
+                    dbRef.child(`second/${key}`).update({ finalRound: true })
+                } else {
+                    dbRef.child(`second/${key}`).update({ finalRound: false })
                 }
             });
 
@@ -71,6 +95,14 @@ var app = new Vue({
         resetGame() {
             stateRef.update({ start: false })
             gamesRef.remove()
+        },
+        eventListenerStartSecond() {
+            stateRef.update({ startSecond: true })
+            window.location.href="/minigame2021/path/dashboardSecond.html"; 
+        },
+        resetGameSecond() {
+            stateRef.update({ startSecond: false })
+            secondRef.remove()
         },
         eventListenerStartFinal() {
             stateRef.update({ startFinal: true })

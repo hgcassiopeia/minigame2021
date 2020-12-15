@@ -91,44 +91,66 @@ article{
 #piece-1{
   top: 0;
   left: 0;
-  background: url('../assets/img3x2/img3x2_01.jpg');
+  background: url('../assets/img3x3/img3x3_01.jpg');
   background-size: cover;
   }
 
 #piece-2{
   top: 0;
   left: 100px;
-  background: url('../assets/img3x2/img3x2_02.jpg');
+  background: url('../assets/img3x3/img3x3_02.jpg');
   background-size: cover;
   }
 
 #piece-3{
   top: 0;
   left: 200px;
-  background: url('../assets/img3x2/img3x2_03.jpg');
+  background: url('../assets/img3x3/img3x3_03.jpg');
   background-size: cover;
   }
 
 #piece-4{
   top: 100px;
   left: 0;
-  background: url('../assets/img3x2/img3x2_04.jpg');
+  background: url('../assets/img3x3/img3x3_04.jpg');
   background-size: cover;
   }
 
 #piece-5{
   top: 100px;
   left: 100px;
-  background: url('../assets/img3x2/img3x2_05.jpg');
+  background: url('../assets/img3x3/img3x3_05.jpg');
   background-size: cover;
   }
 
 #piece-6{
   top: 100px;
   left: 200px;
-  background: url('../assets/img3x2/img3x2_06.jpg');
+  background: url('../assets/img3x3/img3x3_06.jpg');
   background-size: cover;
   }
+
+
+#piece-7{
+  top: 200px;
+  left: 0;
+  background: url('../assets/img3x3/img3x3_07.jpg');
+  background-size: cover;
+}
+
+#piece-8{
+  top: 200px;
+  left: 100px;
+  background: url('../assets/img3x3/img3x3_08.jpg');
+  background-size: cover;
+}
+
+#piece-9{
+  top: 200px;
+  left: 200px;
+  background: url('../assets/img3x3/img3x3_09.jpg');
+  background-size: cover;
+}
 
 .glow{
   z-index: 101;
