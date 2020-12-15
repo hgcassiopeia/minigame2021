@@ -66,13 +66,20 @@ var app = new Vue({
                 this.secondList.push(tmp)
                 this.secondList = this.secondList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
                 this.secondList = this.secondList.slice(0, 5)
-                
+
                 let foundIndex = this.secondList.findIndex(item => item.key == key)
-                if(foundIndex >= 0){
-                    dbRef.child(`second/${key}`).update({ finalRound: true })
-                } else {
-                    dbRef.child(`second/${key}`).update({ finalRound: false })
-                }
+                const gameRef = dbRef.child(`games/${key}/secondRound`);
+                gameRef.on("value", snap => {
+                    if(snap.val()) {
+                        if(foundIndex >= 0){
+                            dbRef.child(`second/${key}`).update({ finalRound: true })
+                        } else {
+                            dbRef.child(`second/${key}`).update({ finalRound: false })
+                        }
+                    } else {
+                        dbRef.child(`second/${key}`).update({ finalRound: false })
+                    }
+                })
             });
 
             finalRef.on("child_added", snap => {

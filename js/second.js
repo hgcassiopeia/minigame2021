@@ -108,9 +108,16 @@ $(document).ready(function(){
             onStart = snap.val()
             if(onStart) {
                 const gameRef = dbRef.child(`second/${myId}/finalRound`);
+                const beforeRef = dbRef.child(`games/${myId}/secondRound`);
                 gameRef.on("value", snap => {
-                    if(snap.val()) {
-                        goToStartFinal()
+                    if(snap.val()) { //final true
+                        beforeRef.on("value", snap => {
+                            if(snap.val()) { //second true
+                                goToStartFinal()
+                            } else {
+                                $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
+                            }
+                        })
                     } else {
                         $("#wait-text").text("เสียใจด้วยคุณไม่ได้ไปต่อ กด 'x' เพื่อปิดเกม")
                     }
@@ -171,7 +178,6 @@ $(document).ready(function(){
                     pictureUrl: profile.pictureUrl,
                     timeScore: secs,
                     moveScore: moves,
-                    secondRound: false,
                     finalRound: false
                 }
                 gameRef.push(newUser).then((snap) => {
