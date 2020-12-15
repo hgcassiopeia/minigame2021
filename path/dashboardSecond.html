@@ -21,7 +21,7 @@
         <div class="col"></div>
         <hr size="10" class="my-0">
       </div>
-      <div class="user-score row text-center" :class="[ index==0 || index==1 || index==2? 'bg-white' : '']" v-for="(game, index) in finalList">
+      <div class="user-score row text-center" :class="[ index==0 || index==1 || index==2? 'bg-white' : '']" v-for="(game, index) in secondList">
         <div :class="[ index==0 || index==1 || index==2? 'first col-1' : 'other col-1']"><img v-if="index==0 || index==1 || index==2" width="50px" src="../assets/reward.png"/></div>
         <div :class="[ index==0 || index==1 || index==2? 'first col-6' : 'other col-6']"><h3>{{ game.displayName }}</h3></div>
         <div :class="[ index==0 || index==1 || index==2? 'first col' : 'other col']"><h3>{{ game.timeScore }}</h3></div>
