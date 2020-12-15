@@ -12,7 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const dbRef = firebase.database().ref();
-const stateRef = dbRef.child('state');
+const stateRef = dbRef.child('state/start');
 
 var app = new Vue({
   el: '#app',

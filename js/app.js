@@ -102,7 +102,7 @@ $(document).ready(function(){
     });
 
     function eventListenerStartSecond() {
-        const stateRef = dbRef.child('state');
+        const stateRef = dbRef.child('state/startSecond');
         
         stateRef.on("child_changed", snap => {
             onStart = snap.val()

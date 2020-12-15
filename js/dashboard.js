@@ -68,18 +68,11 @@ var app = new Vue({
                 this.secondList = this.secondList.slice(0, 5)
 
                 let foundIndex = this.secondList.findIndex(item => item.key == key)
-                const gameRef = dbRef.child(`games/${key}/secondRound`);
-                gameRef.on("value", snap => {
-                    if(snap.val()) {
-                        if(foundIndex >= 0){
-                            dbRef.child(`second/${key}`).update({ finalRound: true })
-                        } else {
-                            dbRef.child(`second/${key}`).update({ finalRound: false })
-                        }
-                    } else {
-                        dbRef.child(`second/${key}`).update({ finalRound: false })
-                    }
-                })
+                if(foundIndex >= 0){
+                    dbRef.child(`second/${key}`).update({ finalRound: true })
+                } else {
+                    dbRef.child(`second/${key}`).update({ finalRound: false })
+                }
             });
 
             finalRef.on("child_added", snap => {
