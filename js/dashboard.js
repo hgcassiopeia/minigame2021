@@ -63,11 +63,11 @@ var app = new Vue({
                     moveScore: game.moveScore,
                     finalRound: false
                 }
-                this.gameList.push(tmp)
-                this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
-                this.gameList = this.gameList.slice(0, 5)
+                this.secondList.push(tmp)
+                this.secondList = this.secondList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
+                this.secondList = this.secondList.slice(0, 5)
                 
-                let foundIndex = this.gameList.findIndex(item => item.key == key)
+                let foundIndex = this.secondList.findIndex(item => item.key == key)
                 if(foundIndex >= 0){
                     dbRef.child(`second/${key}`).update({ finalRound: true })
                 } else {
