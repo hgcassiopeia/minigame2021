@@ -39,7 +39,7 @@ var app = new Vue({
                     displayName: game.displayName,
                     timeScore: game.timeScore,
                     moveScore: game.moveScore,
-                    secondRound: false
+                    secondRound: null
                 }
                 this.gameList.push(tmp)
                 this.gameList = this.gameList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
