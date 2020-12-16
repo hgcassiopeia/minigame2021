@@ -102,8 +102,8 @@ $(document).ready(function(){
     });
 
     //  play the game
-    $('.pieces').click(function(e){
-        e.preventDefault();
+    $('.pieces').click(function(){
+        
         if(tileClicked == false){  //  if no tile is clicked
           //  set variables
           firstTileClicked = $(this).attr('id');
