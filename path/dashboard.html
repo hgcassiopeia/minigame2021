@@ -26,6 +26,7 @@
           <img v-if="index==0" width="50px" src="../assets/reward.png"/>
           <img v-if="index==1" width="50px" src="../assets/reward_silver.png"/>
           <img v-if="index==2" width="50px" src="../assets/reward_bronze.png"/>
+          <h3 v-else>{{ index + 1 }}</h3>
         </div>
         <div :class="[ index==0 || index==1 || index==2? 'first col-6' : 'other col-6']"><h3>{{ game.displayName }}</h3></div>
         <div :class="[ index==0 || index==1 || index==2? 'first col' : 'other col']"><h3>{{ game.timeScore }}</h3></div>
