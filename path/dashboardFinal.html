@@ -14,7 +14,7 @@
     </div>
     <div class="container pt-5 px-6" style="height: 100%;">
       <div class="row text-center">
-        <div class="col-1">RANK</div>
+        <div class="col-1"><h1>RANK</h1></div>
         <div class="col-6"><h1>NAME</h1></div>
         <div class="col"><h1>TIME</h1></div>
         <div class="col"><h1>MOVE</h1></div>
@@ -24,9 +24,9 @@
       <div class="user-score row text-center" :class="[ index==0 || index==1 || index==2? 'bg-white' : '']" v-for="(game, index) in finalList">
         <div :class="[ index==0 || index==1 || index==2? 'first col-1' : 'other col-1']">
           <img v-if="index==0" width="50px" src="../assets/reward.png"/>
-          <img v-if="index==1" width="50px" src="../assets/reward_silver.png"/>
-          <img v-if="index==2" width="50px" src="../assets/reward_bronze.png"/>
-          <h3 v-else-if="index!=0 || index!=1 || index!=2">{{ index + 1 }}</h3>
+          <img v-else-if="index==1" width="50px" src="../assets/reward_silver.png"/>
+          <img v-else--if="index==2" width="50px" src="../assets/reward_bronze.png"/>
+          <h3 v-else>{{ index + 1 }}</h3>
         </div>
         <div :class="[ index==0 || index==1 || index==2? 'first col-6' : 'other col-6']"><h3>{{ game.displayName }}</h3></div>
         <div :class="[ index==0 || index==1 || index==2? 'first col' : 'other col']"><h3>{{ game.timeScore }}</h3></div>
