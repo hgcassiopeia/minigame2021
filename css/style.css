@@ -91,42 +91,42 @@ article{
 #piece-1{
   top: 0;
   left: 0;
-  background: url('../assets/img3x3/img3x3_01.jpg');
+  background: url('../assets/3x3no1/3x3no1_01.jpg');
   background-size: cover;
   }
 
 #piece-2{
   top: 0;
   left: 100px;
-  background: url('../assets/img3x3/img3x3_02.jpg');
+  background: url('../assets/3x3no1/3x3no1_02.jpg');
   background-size: cover;
   }
 
 #piece-3{
   top: 0;
   left: 200px;
-  background: url('../assets/img3x3/img3x3_03.jpg');
+  background: url('../assets/3x3no1/3x3no1_03.jpg');
   background-size: cover;
   }
 
 #piece-4{
   top: 100px;
   left: 0;
-  background: url('../assets/img3x3/img3x3_04.jpg');
+  background: url('../assets/3x3no1/3x3no1_04.jpg');
   background-size: cover;
   }
 
 #piece-5{
   top: 100px;
   left: 100px;
-  background: url('../assets/img3x3/img3x3_05.jpg');
+  background: url('../assets/3x3no1/3x3no1_05.jpg');
   background-size: cover;
   }
 
 #piece-6{
   top: 100px;
   left: 200px;
-  background: url('../assets/img3x3/img3x3_06.jpg');
+  background: url('../assets/3x3no1/3x3no1_06.jpg');
   background-size: cover;
   }
 
@@ -134,21 +134,21 @@ article{
 #piece-7{
   top: 200px;
   left: 0;
-  background: url('../assets/img3x3/img3x3_07.jpg');
+  background: url('../assets/3x3no1/3x3no1_07.jpg');
   background-size: cover;
 }
 
 #piece-8{
   top: 200px;
   left: 100px;
-  background: url('../assets/img3x3/img3x3_08.jpg');
+  background: url('../assets/3x3no1/3x3no1_08.jpg');
   background-size: cover;
 }
 
 #piece-9{
   top: 200px;
   left: 200px;
-  background: url('../assets/img3x3/img3x3_09.jpg');
+  background: url('../assets/3x3no1/3x3no1_09.jpg');
   background-size: cover;
 }
 
