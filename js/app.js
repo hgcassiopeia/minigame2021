@@ -123,15 +123,17 @@ $(document).ready(function(){
         window.location.href="/minigame2021/path/second.html"; 
     }
 
+    function roundnum(num) {
+        return Math.round(num / 100)*100;
+    }
+
     //  play the game
     $('.pieces').click(function(){
-        console.log("disabled piece")
-        $(".pieces").attr("disabled", true);
         if(tileClicked == false){  //  if no tile is clicked
           //  set variables
           firstTileClicked = $(this).attr('id');
-          topPosFir = parseInt($(this).css('top')); 
-          leftPosFir = parseInt($(this).css('left')); 
+          topPosFir = roundnum(parseInt($(this).css('top'))); 
+          leftPosFir = roundnum(parseInt($(this).css('left'))); 
 
           //  highlight tile
           $(this).addClass('glow');
@@ -140,8 +142,8 @@ $(document).ready(function(){
         } else{  //  if you've clicked a tile
           //  set variables
           secondTileClicked = $(this).attr('id');
-          topPosSec = parseInt($(this).css('top')); 
-          leftPosSec = parseInt($(this).css('left'));
+          topPosSec = roundnum(parseInt($(this).css('top'))); 
+          leftPosSec = roundnum(parseInt($(this).css('left')));
 
           //  animations
           $('#' + firstTileClicked).css({'top' : topPosSec , 'left' : leftPosSec});
@@ -192,10 +194,6 @@ $(document).ready(function(){
           //  increment the move counter
           moves++
         }
-
-        setTimeout(() => {
-            $(".pieces").attr("disabled", false);
-        }, 1000)
     });  //  end the click function
 
     main()
