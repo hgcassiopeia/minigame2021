@@ -12,7 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const dbRef = firebase.database().ref();
-const stateRef = dbRef.child('state/start');
+const stateRef = dbRef.child('state');
 
 var app = new Vue({
   el: '#app',
@@ -24,8 +24,10 @@ var app = new Vue({
   },
   methods: {
     eventListenerStart() {
+      console.log("DEBUG2::", this.onStart)
       stateRef.on("child_changed", snap => {
           this.onStart = snap.val()
+          console.log("DEBUG::", this.onStart)
           if(this.onStart) {
             this.goToStart()
           }
