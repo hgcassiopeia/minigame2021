@@ -123,14 +123,10 @@ $(document).ready(function(){
         window.location.href="/minigame2021/path/second.html"; 
     }
 
-    var clickBtn = false;
-
     //  play the game
-    $('.pieces').click(function(e){
-        console.log("test voidddd")
-        if(clickBtn == false){
-            e.preventDefault();
-        }
+    $('.pieces').click(function(){
+        console.log("disabled")
+        $(".pieces").attr("disabled", true);
         if(tileClicked == false){  //  if no tile is clicked
           //  set variables
           firstTileClicked = $(this).attr('id');
@@ -196,7 +192,10 @@ $(document).ready(function(){
           //  increment the move counter
           moves++
         }
-        clickBtn = true;
+
+        setTimeout(() => {
+            $(".pieces").attr("disabled", false);
+        }, 500)
     });  //  end the click function
 
     main()
