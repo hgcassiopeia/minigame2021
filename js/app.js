@@ -124,8 +124,8 @@ $(document).ready(function(){
     }
 
     //  play the game
-    $('.pieces').one("click", function(){
-        
+    $('.pieces').click(function(){
+        $(".pieces").css("pointer-events", "none");
         if(tileClicked == false){  //  if no tile is clicked
           //  set variables
           firstTileClicked = $(this).attr('id');
@@ -191,6 +191,7 @@ $(document).ready(function(){
           //  increment the move counter
           moves++
         }
+        $(".pieces").css("pointer-events", "auto");
     });  //  end the click function
 
     main()
