@@ -318,9 +318,9 @@ $(document).ready(function(){
 
     //  play the game
     $('.pieces').click(function(){
-        
         if(tileClicked == false){  //  if no tile is clicked
           //  set variables
+          firstTileClicked = $(this).attr('id');
           let tilePos = shufflePosition.find(tile => tile.id === firstTileClicked)
           topPosFir = tilePos.top
           leftPosFir = tilePos.left 
