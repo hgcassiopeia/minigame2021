@@ -125,7 +125,7 @@ $(document).ready(function(){
 
     //  play the game
     $('.pieces').click(function(){
-        console.log("disabled")
+        console.log("disabled piece")
         $(".pieces").attr("disabled", true);
         if(tileClicked == false){  //  if no tile is clicked
           //  set variables
@@ -195,7 +195,7 @@ $(document).ready(function(){
 
         setTimeout(() => {
             $(".pieces").attr("disabled", false);
-        }, 500)
+        }, 1000)
     });  //  end the click function
 
     main()
