@@ -376,7 +376,7 @@ $(document).ready(function(){
                     pictureUrl: profile.pictureUrl,
                     timeScore: secs,
                     moveScore: moves,
-                    secondRound: null
+                    secondRound: false
                 }
                 gameRef.push(newUser).then((snap) => {
                     myId = snap.key 
