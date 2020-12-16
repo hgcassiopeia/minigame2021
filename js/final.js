@@ -29,6 +29,7 @@ $(document).ready(function(){
     var secs = 0;
     var myId = 0;
     var profile = {};
+    var shufflePosition = []
 
     //  shuffle the tiles
     function shuffleTiles(){
@@ -42,6 +43,54 @@ $(document).ready(function(){
             $('#piece-7').css({top: 200, left: 200});
             $('#piece-8').css({top: 200, left: 0});
             $('#piece-9').css({top: 200, left: 100});
+
+            shufflePosition = [
+                {
+                    id: 'piece-1',
+                    top: 100,
+                    left: 200
+                },
+                {
+                    id: 'piece-2',
+                    top: 0,
+                    left: 200
+                },
+                {
+                    id: 'piece-3',
+                    top: 100,
+                    left: 100
+                },
+                {
+                    id: 'piece-4',
+                    top: 0,
+                    left: 100
+                },
+                {
+                    id: 'piece-5',
+                    top: 100,
+                    left: 0
+                },
+                {
+                    id: 'piece-6',
+                    top: 0,
+                    left: 0
+                },
+                {
+                    id: 'piece-7',
+                    top: 200,
+                    left: 200
+                },
+                {
+                    id: 'piece-8',
+                    top: 200,
+                    left: 0
+                },
+                {
+                    id: 'piece-9',
+                    top: 200,
+                    left: 100
+                }
+            ]
         } else if(shuffle == 2){
             $('#piece-1').css({top: 100, left: 0});
             $('#piece-2').css({top: 0, left: 0});
@@ -52,6 +101,54 @@ $(document).ready(function(){
             $('#piece-7').css({top: 200, left: 200});
             $('#piece-8').css({top: 200, left: 0});
             $('#piece-9').css({top: 200, left: 100});
+
+            shufflePosition = [
+                {
+                    id: 'piece-1',
+                    top: 100,
+                    left: 0
+                },
+                {
+                    id: 'piece-2',
+                    top: 0,
+                    left: 0
+                },
+                {
+                    id: 'piece-3',
+                    top: 100,
+                    left: 100
+                },
+                {
+                    id: 'piece-4',
+                    top: 0,
+                    left: 100
+                },
+                {
+                    id: 'piece-5',
+                    top: 100,
+                    left: 200
+                },
+                {
+                    id: 'piece-6',
+                    top: 0,
+                    left: 200
+                },
+                {
+                    id: 'piece-7',
+                    top: 200,
+                    left: 200
+                },
+                {
+                    id: 'piece-8',
+                    top: 200,
+                    left: 0
+                },
+                {
+                    id: 'piece-9',
+                    top: 200,
+                    left: 100
+                }
+            ]
         } else if(shuffle == 3){
             $('#piece-1').css({top: 0, left: 200});
             $('#piece-2').css({top: 0, left: 0});
@@ -62,6 +159,54 @@ $(document).ready(function(){
             $('#piece-7').css({top: 200, left: 200});
             $('#piece-8').css({top: 200, left: 0});
             $('#piece-9').css({top: 200, left: 100});
+
+            shufflePosition = [
+                {
+                    id: 'piece-1',
+                    top: 0,
+                    left: 200
+                },
+                {
+                    id: 'piece-2',
+                    top: 0,
+                    left: 0
+                },
+                {
+                    id: 'piece-3',
+                    top: 100,
+                    left: 100
+                },
+                {
+                    id: 'piece-4',
+                    top: 100,
+                    left: 200
+                },
+                {
+                    id: 'piece-5',
+                    top: 0,
+                    left: 100
+                },
+                {
+                    id: 'piece-6',
+                    top: 100,
+                    left: 0
+                },
+                {
+                    id: 'piece-7',
+                    top: 200,
+                    left: 200
+                },
+                {
+                    id: 'piece-8',
+                    top: 200,
+                    left: 0
+                },
+                {
+                    id: 'piece-9',
+                    top: 200,
+                    left: 100
+                }
+            ]
         } else if(shuffle == 4){
             $('#piece-1').css({top: 0, left: 200});
             $('#piece-2').css({top: 100, left: 200});
@@ -72,6 +217,54 @@ $(document).ready(function(){
             $('#piece-7').css({top: 200, left: 200});
             $('#piece-8').css({top: 200, left: 0});
             $('#piece-9').css({top: 200, left: 100});
+
+            shufflePosition = [
+                {
+                    id: 'piece-1',
+                    top: 0,
+                    left: 200
+                },
+                {
+                    id: 'piece-2',
+                    top: 100,
+                    left: 200
+                },
+                {
+                    id: 'piece-3',
+                    top: 0,
+                    left: 100
+                },
+                {
+                    id: 'piece-4',
+                    top: 100,
+                    left: 100
+                },
+                {
+                    id: 'piece-5',
+                    top: 0,
+                    left: 0
+                },
+                {
+                    id: 'piece-6',
+                    top: 100,
+                    left: 0
+                },
+                {
+                    id: 'piece-7',
+                    top: 200,
+                    left: 200
+                },
+                {
+                    id: 'piece-8',
+                    top: 200,
+                    left: 0
+                },
+                {
+                    id: 'piece-9',
+                    top: 200,
+                    left: 100
+                }
+            ]
         }
     }
 
@@ -107,8 +300,9 @@ $(document).ready(function(){
         if(tileClicked == false){  //  if no tile is clicked
           //  set variables
           firstTileClicked = $(this).attr('id');
-          topPosFir = parseInt($(this).css('top')); 
-          leftPosFir = parseInt($(this).css('left')); 
+          let tilePos = shufflePosition.find(tile => tile.id === firstTileClicked)
+          topPosFir = tilePos.top
+          leftPosFir = tilePos.left 
 
           //  highlight tile
           $(this).addClass('glow');
@@ -117,12 +311,24 @@ $(document).ready(function(){
         } else{  //  if you've clicked a tile
           //  set variables
           secondTileClicked = $(this).attr('id');
-          topPosSec = parseInt($(this).css('top')); 
-          leftPosSec = parseInt($(this).css('left'));
+          let tilePos = shufflePosition.find(tile => tile.id === secondTileClicked)
+          topPosSec = tilePos.top
+          leftPosSec = tilePos.left
 
           //  animations
           $('#' + firstTileClicked).css({'top' : topPosSec , 'left' : leftPosSec});
           $('#' + secondTileClicked).css({'top' : topPosFir , 'left' : leftPosFir});
+
+          shufflePosition = shufflePosition.map(tile => {
+            if(tile.id === firstTileClicked) {
+                tile.top = topPosSec
+                tile.left = leftPosSec
+            } else if(tile.id === secondTileClicked) {
+                tile.top = topPosFir
+                tile.left = leftPosFir
+            }
+            return tile
+          })
 
           //  remove the glow and reset the first tile
           $('.pieces').removeClass('glow');

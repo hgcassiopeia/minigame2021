@@ -159,6 +159,7 @@ $(document).ready(function(){
             $('#piece-7').css({top: 0, left: 200});
             $('#piece-8').css({top: 200, left: 0});
             $('#piece-9').css({top: 200, left: 100});
+
             shufflePosition = [
                 {
                     id: 'piece-1',
@@ -313,10 +314,6 @@ $(document).ready(function(){
     
     function goToStartSecond() {
         window.location.href="/minigame2021/path/second.html"; 
-    }
-
-    function roundnum(num) {
-        return Math.round(num / 100)*100;
     }
 
     //  play the game
