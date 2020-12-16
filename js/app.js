@@ -123,78 +123,80 @@ $(document).ready(function(){
         window.location.href="/minigame2021/path/second.html"; 
     }
 
-    function swtichTile() {
-        if(tileClicked == false){  //  if no tile is clicked
-            //  set variables
-            firstTileClicked = $(this).attr('id');
-            topPosFir = parseInt($(this).css('top')); 
-            leftPosFir = parseInt($(this).css('left')); 
-  
-            //  highlight tile
-            $(this).addClass('glow');
-            tileClicked = true;
-  
-          } else{  //  if you've clicked a tile
-            //  set variables
-            secondTileClicked = $(this).attr('id');
-            topPosSec = parseInt($(this).css('top')); 
-            leftPosSec = parseInt($(this).css('left'));
-  
-            //  animations
-            $('#' + firstTileClicked).css({'top' : topPosSec , 'left' : leftPosSec});
-            $('#' + secondTileClicked).css({'top' : topPosFir , 'left' : leftPosFir});
-  
-            //  remove the glow and reset the first tile
-            $('.pieces').removeClass('glow');
-            tileClicked = false;
-  
-            //  test for the win
-            setTimeout(function(){
-              $(".time-move-score>.move").text(moves)
-              if(
-                $('#piece-1').css('left') == '0px' && $('#piece-1').css('top') == '0px' && 
-                $('#piece-2').css('left') == '100px' && $('#piece-2').css('top') == '0px' &&
-                $('#piece-3').css('left') == '200px' && $('#piece-3').css('top') == '0px' &&
-                $('#piece-4').css('left') == '0px' && $('#piece-4').css('top') == '100px' &&
-                $('#piece-5').css('left') == '100px' && $('#piece-5').css('top') == '100px' &&
-                $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' &&
-                $('#piece-7').css('left') == '0px' && $('#piece-7').css('top') == '200px' &&
-                $('#piece-8').css('left') == '100px' && $('#piece-8').css('top') == '200px' &&
-                $('#piece-9').css('left') == '200px' && $('#piece-9').css('top') == '200px' 
-              ){
-                  const gameRef = dbRef.child('games');
-                  let newUser = {
-                      userId: profile.userId,
-                      displayName: profile.displayName,
-                      pictureUrl: profile.pictureUrl,
-                      timeScore: secs,
-                      moveScore: moves,
-                      secondRound: false
-                  }
-                  gameRef.push(newUser).then((snap) => {
-                      myId = snap.key 
-                  })
-  
-                  $('.result-score').text('คุณใช้เวลา ' + secs + ' วิ และขยับ ' + moves + ' ครั้ง!!');
-                  $('article').addClass('glow-2');
-                  moves = 0;
-  
-                  setTimeout(function(){
-                      $('#overlay').css("display", "block")
-                      eventListenerStartSecond()
-                  }, 1000)
-              }
-            }, 1000);
-  
-            //  increment the move counter
-            moves++
-          }
-    }
+    var clickBtn = false;
 
     //  play the game
     $('.pieces').click(function(){
-        console.log("pieces swtichTile")
-        swtichTile()
+        console.log("test voidddd")
+        if(clickBtn == false){
+            e.preventDefault();
+        }
+        if(tileClicked == false){  //  if no tile is clicked
+          //  set variables
+          firstTileClicked = $(this).attr('id');
+          topPosFir = parseInt($(this).css('top')); 
+          leftPosFir = parseInt($(this).css('left')); 
+
+          //  highlight tile
+          $(this).addClass('glow');
+          tileClicked = true;
+
+        } else{  //  if you've clicked a tile
+          //  set variables
+          secondTileClicked = $(this).attr('id');
+          topPosSec = parseInt($(this).css('top')); 
+          leftPosSec = parseInt($(this).css('left'));
+
+          //  animations
+          $('#' + firstTileClicked).css({'top' : topPosSec , 'left' : leftPosSec});
+          $('#' + secondTileClicked).css({'top' : topPosFir , 'left' : leftPosFir});
+
+          //  remove the glow and reset the first tile
+          $('.pieces').removeClass('glow');
+          tileClicked = false;
+
+          //  test for the win
+          setTimeout(function(){
+            $(".time-move-score>.move").text(moves)
+            if(
+              $('#piece-1').css('left') == '0px' && $('#piece-1').css('top') == '0px' && 
+              $('#piece-2').css('left') == '100px' && $('#piece-2').css('top') == '0px' &&
+              $('#piece-3').css('left') == '200px' && $('#piece-3').css('top') == '0px' &&
+              $('#piece-4').css('left') == '0px' && $('#piece-4').css('top') == '100px' &&
+              $('#piece-5').css('left') == '100px' && $('#piece-5').css('top') == '100px' &&
+              $('#piece-6').css('left') == '200px' && $('#piece-6').css('top') == '100px' &&
+              $('#piece-7').css('left') == '0px' && $('#piece-7').css('top') == '200px' &&
+              $('#piece-8').css('left') == '100px' && $('#piece-8').css('top') == '200px' &&
+              $('#piece-9').css('left') == '200px' && $('#piece-9').css('top') == '200px' 
+            ){
+                const gameRef = dbRef.child('games');
+                let newUser = {
+                    userId: profile.userId,
+                    displayName: profile.displayName,
+                    pictureUrl: profile.pictureUrl,
+                    timeScore: secs,
+                    moveScore: moves,
+                    secondRound: false
+                }
+                gameRef.push(newUser).then((snap) => {
+                    myId = snap.key 
+                })
+
+                $('.result-score').text('คุณใช้เวลา ' + secs + ' วิ และขยับ ' + moves + ' ครั้ง!!');
+                $('article').addClass('glow-2');
+                moves = 0;
+
+                setTimeout(function(){
+                    $('#overlay').css("display", "block")
+                    eventListenerStartSecond()
+                }, 1000)
+            }
+          }, 1000);
+
+          //  increment the move counter
+          moves++
+        }
+        clickBtn = true;
     });  //  end the click function
 
     main()
