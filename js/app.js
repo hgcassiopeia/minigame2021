@@ -125,6 +125,7 @@ $(document).ready(function(){
 
     //  play the game
     $('.pieces').click(function(){
+        console.log("CHECK CLICK")
         $(".pieces").css("pointer-events", "none");
         if(tileClicked == false){  //  if no tile is clicked
           //  set variables
