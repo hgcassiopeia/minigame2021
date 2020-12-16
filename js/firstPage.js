@@ -24,10 +24,8 @@ var app = new Vue({
   },
   methods: {
     eventListenerStart() {
-      console.log("DEBUG2::", this.onStart)
       stateRef.on("child_changed", snap => {
           this.onStart = snap.val()
-          console.log("DEBUG::", this.onStart)
           if(this.onStart) {
             this.goToStart()
           }

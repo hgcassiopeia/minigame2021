@@ -102,7 +102,7 @@ $(document).ready(function(){
     });
 
     function eventListenerStartFinal() {
-        const stateRef = dbRef.child('state/startFinal');
+        const stateRef = dbRef.child('state');
         
         stateRef.on("child_changed", snap => {
             onStart = snap.val()
