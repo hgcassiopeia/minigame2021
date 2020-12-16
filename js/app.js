@@ -126,7 +126,7 @@ $(document).ready(function(){
     var clickBtn = false;
 
     //  play the game
-    $('.pieces').click(function(){
+    $('.pieces').click(function(e){
         console.log("test voidddd")
         if(clickBtn == false){
             e.preventDefault();
