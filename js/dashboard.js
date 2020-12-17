@@ -85,7 +85,7 @@ var app = new Vue({
                 }
                 this.finalList.push(tmp)
                 this.finalList = this.finalList.sort((a, b) => a.timeScore - b.timeScore || a.moveScore - b.moveScore)
-                this.finalList = this.finalList.slice(0, 3)
+                this.finalList = this.finalList.slice(0, 4)
             });
         },
         eventListenerStart() {
